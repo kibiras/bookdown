@@ -1,15 +1,105 @@
 --- 
-title: "Test bookdown"
-author: "YOUR NAME HERE"
+title: "FMISD19004 Cloud Computing Technologies"
+author: "Kęstutis Daugėla"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+citation_package: natbib 
+bibliography: references.bib
+biblio-style: "apalike"
+link-citations: true
 ---
 
-# Down the rabbit-hole
+# Introduction {-}
 
-## test 1
 
-### test 2
+The characteristics of cloud computing were
+explored first time in 1966 by Douglas Parkhill in his
+book, “The challenge of the Computer Utility”
 
-# test
+
+But  despite  the  gain  achieved  from  cloud computing, the organizations are slow in accepting it due to security issues and  challenges associated with it [@Cloud-computing].
+
+https://web.archive.org/web/20170329121024/http://www.hello-cirro.co.uk/evolution-of-cloud-computing/
+
+i. Reduced hardware and maintenance cost,  ii. Accessibility around the world, and  iii. Flexibility and highly automated processes 
+
+Cloud Computing SaaS,  PaaS, and IaaS. SaaS  refers to  Software  as  a  Service  in  this  a  system  with operating systems, hardware and network provided or we  can say  a pre  developed  system.  PaaS refers  to Platform  as  a  Service  in this  the  operating  system, hardware and network are provided and customer/user installs or develops its own software. And IaaS refers to Infrastructure as a Service in this the customer has the  knowledge  about  all  the  stuff.  There  are  no publically  available  standards  specific  to  cloud computing  security.  In  this  paper  we  propose  the following  standards  for  maintaining  security  in  an unsafe environment.
+
+[@CloudHistoryOverview]
+
+
+According to [@CloudReview] benefits of Cloud Computing includes Cost Saving, Flexibility, Enhanced Security 
+
+[Magic Quadrant for Cloud Infrastructure and Platform Services](https://www.gartner.com/doc/reprints?id=1-271OE4VR&ct=210802&st=sb)
+
+![Magic Quadrant for Cloud Infrastructure and Platform Services](img/gartner.png)
+
+
+
+
+# Part I
+
+
+
+Software as a Service (SaaS)
+
+Platform as a Service(PaaS)
+
+Infrastructure as a Service (IaaS)
+
+Deployment types- public, private, community, hybrid
+
+
+## Managing SLA (SLO) requirements on clouds through scalability and reliability
+
+The big challenge for Cloud customers is to evaluate
+SLA’s of cloud vendors. 
+
+There are two types of SLAs in a cloud computing environment: SLAs between the end user and the cloud client, and SLAs between the cloud client and the cloud infrastructure provider. This paper investigates the cost/performance trade-off from the cloud clients’ perspective. From the cloud client’s point-of-view the auto-scaling goal is to reduce resource cost (i.e., the cost of the leased resources from the IaaS provider) and the SLA violation cost (i.e., the cost that is associated with the SLA breaches), at the same time.
+
+1) Public cloud
+Most services are offered in a public environment in which consumers can access a
+resource pool that is managed by a host corporation [14]. Because of its existence, this type of
+environment will pose important concerns regarding security issues [15].
+2) Private cloud
+A third party vendor provides the services which distinguish it from public accesses [16].
+Therefore it is better than the previous development model because it prevents unauthorized
+access.
+3) Community cloud
+The cloud services are provided to a specified group where all members are entitled to
+equal access to the sheared services [17].
+4) Hybrid cloud
+The cloud services are provided as multiple cloud combustion (public cloud, private
+cloud, and community cloud) [18]. It might just inherit any kind of vulnerability or risk which
+resides within the parties listed above
+
+Security
+requirements represent a major issue that has to be met in order of easing some of these
+obstacles [@CloudRole]
+
+
+## Migration to cloud approaches
+
+## Use case
+
+
+# Part II (TBA)
+
+## Networking
+
+## Security   
+
+## Monitoring
+
+## Use Case
+
+# Part III (TBA)
+
+## Infrastructure as Code 
+
+## Data Governance
+
+## Use Case
+
+# References {-}
 
