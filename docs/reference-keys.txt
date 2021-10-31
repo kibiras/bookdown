@@ -23,3 +23,6 @@ data-governance
 use-case-2
 part-ii-tba
 part-iii-tba
+kubernetas-in-a-nutshell
+kubernetes-in-a-nutshell
+moving-to-cloud

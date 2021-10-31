@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Part I | FMISD19004 Cloud Computing Technologies</title>
-  <meta name="description" content="Chapter 1 Part I | FMISD19004 Cloud Computing Technologies" />
+  <title>Chapter 1 Moving to cloud | FMISD19004 Cloud Computing Technologies</title>
+  <meta name="description" content="Chapter 1 Moving to cloud | FMISD19004 Cloud Computing Technologies" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Part I | FMISD19004 Cloud Computing Technologies" />
+  <meta property="og:title" content="Chapter 1 Moving to cloud | FMISD19004 Cloud Computing Technologies" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Part I | FMISD19004 Cloud Computing Technologies" />
+  <meta name="twitter:title" content="Chapter 1 Moving to cloud | FMISD19004 Cloud Computing Technologies" />
   
   
   
@@ -74,11 +74,11 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="part-i.html"><a href="part-i.html"><i class="fa fa-check"></i><b>1</b> Part I</a><ul>
-<li class="chapter" data-level="1.1" data-path="part-i.html"><a href="part-i.html#managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements on clouds through scalability and reliability</a></li>
-<li class="chapter" data-level="1.2" data-path="part-i.html"><a href="part-i.html#migration-to-cloud-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration to cloud approaches</a></li>
-<li class="chapter" data-level="1.3" data-path="part-i.html"><a href="part-i.html#kubernetes-in-a-nutshell"><i class="fa fa-check"></i><b>1.3</b> Kubernetes in a nutshell</a></li>
-<li class="chapter" data-level="1.4" data-path="part-i.html"><a href="part-i.html#use-case"><i class="fa fa-check"></i><b>1.4</b> Use case</a></li>
+<li class="chapter" data-level="1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html"><i class="fa fa-check"></i><b>1</b> Moving to cloud</a><ul>
+<li class="chapter" data-level="1.1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements on clouds through scalability and reliability</a></li>
+<li class="chapter" data-level="1.2" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#migration-to-cloud-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration to cloud approaches</a></li>
+<li class="chapter" data-level="1.3" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#kubernetes-in-a-nutshell"><i class="fa fa-check"></i><b>1.3</b> Kubernetes in a nutshell</a></li>
+<li class="chapter" data-level="1.4" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#use-case"><i class="fa fa-check"></i><b>1.4</b> Use case</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="part-ii-tba.html"><a href="part-ii-tba.html"><i class="fa fa-check"></i><b>2</b> Part II (TBA)</a><ul>
 <li class="chapter" data-level="2.1" data-path="part-ii-tba.html"><a href="part-ii-tba.html#networking"><i class="fa fa-check"></i><b>2.1</b> Networking</a></li>
@@ -111,12 +111,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="part-i" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Part I</h1>
-<p>Software as a Service (SaaS)</p>
-<p>Platform as a Service(PaaS)</p>
-<p>Infrastructure as a Service (IaaS)</p>
-<p>Deployment types- public, private, community, hybrid</p>
+<div id="moving-to-cloud" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Moving to cloud</h1>
 <div id="managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability" class="section level2">
 <h2><span class="header-section-number">1.1</span> Managing SLA (SLO) requirements on clouds through scalability and reliability</h2>
 <p>The big challenge for Cloud customers is to evaluate
@@ -243,6 +239,8 @@ Container Resource Monitoring records generic time-series metrics about containe
 <p>The philosophy of docker is to encapsulate software code and all its dependencies so that it can run uniformly and consistently on any infrastructure, namely, the containerization strategy. R Shiny apps usually have many package dependencies. We’ll first test its running on a local computer and then make them work remotely. Without containerization by docker, we’ll have to make sure all the computers that run the apps have the same running environment. That means we’ll spend much effort installing and configuring numerous software and packages. And when a package gets updated on the test computer, it has to be updated in all the other ones. We can see it will easily become painful to manage multiple R shiny apps in this way. With docker, we can pack the apps, their dependencies, and the running environment as a whole image. The image can be copied to other computers and we can just start running the apps (as long as that computer has docker installed). Without being disrupted by tedious installations and configurations, this type of practice greatly speeds up the workflow of software development and deployment.</p>
 <p><a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35" class="uri">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a></p>
 <p>When it comes to managed Kubernetes services, Google Kubernetes Engine (GKE) is a great choice if you are looking for a container orchestration platform that offers advanced scalability and configuration flexibility. GKE gives you complete control over every aspect of container orchestration, from networking, to storage, to how you set up observability—in addition to supporting stateful application use cases. However, if your application does not need that level of cluster configuration and monitoring, then fully managed Cloud Run might be the right solution for you.</p>
+<p>Cloud Run is intended for those who focus on container-based development versus using source-based systems. The idea is that containers provide separation of duties between the developer and the platform where the container executes.</p>
+<p>The serverless benefits are also compelling. While some people can accurately size resources, and even leverage reserved instances at a discount, most enterprises struggle to manage cloud operations within cost parameters. Serverless provides more fine-grained billing.</p>
 <p><img src="img/Cloud-Run.jpeg" alt="Cloud Run - cloud.google.com" />
 Reason to choose Cloud Run i/o Kubernetes</p>
 <p>With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, your service is merely available and you are only billed for actual consumption. If your service not being called, your costs are zero. Another advantage is that you don’t have to predict your utilization needs and allocate sufficient nodes. Scaling happens automatically for you.
