@@ -24,7 +24,7 @@
 <meta name="author" content="Kęstutis Daugėla" />
 
 
-<meta name="date" content="2021-11-01" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,18 +78,18 @@
 <li class="chapter" data-level="1.1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements on clouds through scalability and reliability</a></li>
 <li class="chapter" data-level="1.2" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#migration-to-cloud-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration to cloud approaches</a></li>
 <li class="chapter" data-level="1.3" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#kubernetes-in-a-nutshell"><i class="fa fa-check"></i><b>1.3</b> Kubernetes in a nutshell</a></li>
-<li class="chapter" data-level="1.4" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#use-case"><i class="fa fa-check"></i><b>1.4</b> Use case</a></li>
+<li class="chapter" data-level="1.4" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#use-case-r-case"><i class="fa fa-check"></i><b>1.4</b> Use Case (R Case)</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="part-ii-tba.html"><a href="part-ii-tba.html"><i class="fa fa-check"></i><b>2</b> Part II (TBA)</a><ul>
 <li class="chapter" data-level="2.1" data-path="part-ii-tba.html"><a href="part-ii-tba.html#networking"><i class="fa fa-check"></i><b>2.1</b> Networking</a></li>
 <li class="chapter" data-level="2.2" data-path="part-ii-tba.html"><a href="part-ii-tba.html#security"><i class="fa fa-check"></i><b>2.2</b> Security</a></li>
 <li class="chapter" data-level="2.3" data-path="part-ii-tba.html"><a href="part-ii-tba.html#monitoring"><i class="fa fa-check"></i><b>2.3</b> Monitoring</a></li>
-<li class="chapter" data-level="2.4" data-path="part-ii-tba.html"><a href="part-ii-tba.html#use-case-1"><i class="fa fa-check"></i><b>2.4</b> Use Case</a></li>
+<li class="chapter" data-level="2.4" data-path="part-ii-tba.html"><a href="part-ii-tba.html#use-case"><i class="fa fa-check"></i><b>2.4</b> Use Case</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="part-iii-tba.html"><a href="part-iii-tba.html"><i class="fa fa-check"></i><b>3</b> Part III (TBA)</a><ul>
 <li class="chapter" data-level="3.1" data-path="part-iii-tba.html"><a href="part-iii-tba.html#infrastructure-as-code"><i class="fa fa-check"></i><b>3.1</b> Infrastructure as Code</a></li>
 <li class="chapter" data-level="3.2" data-path="part-iii-tba.html"><a href="part-iii-tba.html#data-governance"><i class="fa fa-check"></i><b>3.2</b> Data Governance</a></li>
-<li class="chapter" data-level="3.3" data-path="part-iii-tba.html"><a href="part-iii-tba.html#use-case-2"><i class="fa fa-check"></i><b>3.3</b> Use Case</a></li>
+<li class="chapter" data-level="3.3" data-path="part-iii-tba.html"><a href="part-iii-tba.html#use-case-1"><i class="fa fa-check"></i><b>3.3</b> Use Case</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -115,61 +115,54 @@
 <h1><span class="header-section-number">Chapter 1</span> Moving to cloud</h1>
 <div id="managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability" class="section level2">
 <h2><span class="header-section-number">1.1</span> Managing SLA (SLO) requirements on clouds through scalability and reliability</h2>
-<p>The big challenge for Cloud customers is to evaluate
-SLA’s of cloud vendors. <span class="citation">(Odun-Ayo, Ajayi, and Omoregbe <a href="#ref-CloudSLA" role="doc-biblioref">2017</a>)</span> <span class="citation">(Aljoumah et al. <a href="#ref-CloudSLAComprehensive" role="doc-biblioref">2015</a>)</span></p>
-<p>There are two types of SLAs in a cloud computing environment: SLAs between the end user and the cloud client, and SLAs between the cloud client and the cloud infrastructure provider. This paper investigates the cost/performance trade-off from the cloud clients’ perspective. From the cloud client’s point-of-view the auto-scaling goal is to reduce resource cost (i.e., the cost of the leased resources from the IaaS provider) and the SLA violation cost (i.e., the cost that is associated with the SLA breaches), at the same time.</p>
+<p>One of the biggest challenge for potential cloud customers is to evaluate SLA’s of cloud vendors <span class="citation">(Odun-Ayo, Ajayi, and Omoregbe <a href="#ref-CloudSLA" role="doc-biblioref">2017</a>)</span> <span class="citation">(Aljoumah et al. <a href="#ref-CloudSLAComprehensive" role="doc-biblioref">2015</a>)</span>. There are four major cloud setups in general:</p>
 <ol style="list-style-type: decimal">
-<li>Public cloud
-Most services are offered in a public environment in which consumers can access a
-resource pool that is managed by a host corporation [14]. Because of its existence, this type of
-environment will pose important concerns regarding security issues [15].</li>
-<li>Private cloud
-A third party vendor provides the services which distinguish it from public accesses [16].
-Therefore it is better than the previous development model because it prevents unauthorized
-access.</li>
-<li>Community cloud
-The cloud services are provided to a specified group where all members are entitled to
-equal access to the sheared services [17].</li>
-<li>Hybrid cloud
-The cloud services are provided as multiple cloud combustion (public cloud, private
-cloud, and community cloud) [18]. It might just inherit any kind of vulnerability or risk which
-resides within the parties listed above</li>
+<li><strong>Public cloud</strong>. In this setup users can access the resource pool that is managed by a cloud provider.Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.</li>
+<li><strong>Private cloud</strong>. The vendor provides the services which prevent public assess (e.g. dedicated servers)</li>
+<li><strong>Community cloud</strong> The cloud services are provided to a specified group where all members are entitled to equal access to the shared services.</li>
+<li><strong>Hybrid cloud</strong> The cloud services are provided as multiple cloud combustion (public cloud, private cloud, and community cloud)</li>
 </ol>
-<p>Security
-requirements represent a major issue that has to be met in order of easing some of these
-obstacles <span class="citation">(Alam <a href="#ref-CloudRole" role="doc-biblioref">2020</a>)</span></p>
+<div class="figure">
+<img src="img/cloudstrategy.png" alt="" />
+<p class="caption">Cloud Strategy - image source Flexera</p>
+</div>
+<p>It makes sense to compare the actual numbers between the cloud strategy presented in 2019 with the actual survey made in 2021. Almost every cloud-ready company uses the public cloud (97%) to some extent leaving hybrid cloud setup the dominant (78%).</p>
+<div class="figure">
+<img src="img/types-of-clouds-used.png" alt="" />
+<p class="caption">Cloud Strategy - image source Flexera</p>
+</div>
+<div class="figure">
+<img src="img/comparison.jpg" alt="" />
+<p class="caption">Cloud Services comparison - image source n-IX.com</p>
+</div>
+<div class="figure">
+<img src="img/pricing.PNG" alt="" />
+<p class="caption">Pricing comparison - image source cast.ai</p>
+</div>
+<div class="figure">
+<img src="img/varonis_comparison.png" alt="" />
+<p class="caption">Conclusion - image source www.varonis.com</p>
+</div>
+<p>Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles <span class="citation">(Alam <a href="#ref-CloudRole" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="migration-to-cloud-approaches" class="section level2">
 <h2><span class="header-section-number">1.2</span> Migration to cloud approaches</h2>
-<p>. This means that all applications moving into the cloud must run in a virtualized way.
-Secondly, cloud computing advocates that resources should be controlled on demand, and can be
-flexibly and elastically expanded and contracted according to the change of demand. This means that
-the business of the programs running on the cloud will work in a parallel and cluster mode. However,
-not all the existing application architectures are designed in a parallel or cluster mode.</p>
-<p>Of course, virtual machines
-also become the most direct entry for applications running in the cloud. PaaS level services provide
-platform level services, such as development, deployment, monitoring and other tools in the cloud
-environment and platform level software in other clouds, to help applications more easily, quickly and
-effectively migrate to the cloud. On the other hand, most of the existing applications cannot run
-directly in the cloud environment due to their own architecture differences or other reasons.</p>
-<p><span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span></p>
-<p>According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud,
-stated as</p>
-<p>The trust deficit between client
-and cloud providers regarding a set of security protocols is also part of the findings. Sometimes many organizations
-do not want to invest in new technology components as they think it as an additional cost</p>
+<p>The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum <span class="citation">(Orban <a href="#ref-awsmigration" role="doc-biblioref">2016</a>)</span>. Cloud computing advocates that resources should be controlled on demand, and can be flexibly and elastically expanded and contracted according to the change of demand <span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span>. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment. Automation is an important aspect of the migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications <span class="citation">(Jayachandran, Pawar, and Venkataraman <a href="#ref-cloudautomation" role="doc-biblioref">2017</a>)</span>.</p>
+<div class="figure">
+<img src="img/migration_strat.png" alt="" />
+<p class="caption">Cloud migration strategy - image source aws.amazon.com</p>
+</div>
+<p>According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budgets are allocated through multiple services. E.g. in 2018 on average they were spent accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS. Gartner predicts that through 2025, 99% of cloud security failures will be the customer’s fault.</p>
 <p><span class="citation">(Iqbal and Colomo-Palacios <a href="#ref-CloudMigrationReview" role="doc-biblioref">2019</a>)</span></p>
 </div>
 <div id="kubernetes-in-a-nutshell" class="section level2">
 <h2><span class="header-section-number">1.3</span> Kubernetes in a nutshell</h2>
-<p>Kubernetes (κυβερνήτης, Greek for “helmsman” or “pilot” or “governor”, and the etymological root of cybernetics)[6] was founded by Ville Aikas, Joe Beda, Brendan Burns, and Craig McLuckie,[12] who were quickly joined by other Google engineers including Brian Grant and Tim Hockin, and was first announced by Google in mid-2014.[13] Its development and design are heavily influenced by Google’s Borg system,[14][15] and many of the top contributors to the project previously worked on Borg. The original codename for Kubernetes within Google was Project 7, a reference to the Star Trek ex-Borg character Seven of Nine.[16] The seven spokes on the wheel of the Kubernetes logo are a reference to that codename. The original Borg project was written entirely in C++,[14] but the rewritten Kubernetes system is implemented in Go.</p>
-<p>Its goals are to build on the capabilities of containers to provide significant gains in programmer productivity and ease of both manual and automated system management.</p>
-<p><span class="citation">(Verma et al. <a href="#ref-Borg" role="doc-biblioref">2015</a>)</span> <span class="citation">(Burns et al. <a href="#ref-BorgKubernetes" role="doc-biblioref">2016</a>)</span></p>
-<p>Traditional deployment era: Early on, organizations ran applications on physical servers. There was no way to define resource boundaries for applications in a physical server, and this caused resource allocation issues. For example, if multiple applications run on a physical server, there can be instances where one application would take up most of the resources, and as a result, the other applications would underperform. A solution for this would be to run each application on a different physical server. But this did not scale as resources were underutilized, and it was expensive for organizations to maintain many physical servers.</p>
-<p>Virtualized deployment era: As a solution, virtualization was introduced. It allows you to run multiple Virtual Machines (VMs) on a single physical server’s CPU. Virtualization allows applications to be isolated between VMs and provides a level of security as the information of one application cannot be freely accessed by another application.</p>
-<p>Virtualization allows better utilization of resources in a physical server and allows better scalability because an application can be added or updated easily, reduces hardware costs, and much more. With virtualization you can present a set of physical resources as a cluster of disposable virtual machines.</p>
-<p>Each VM is a full machine running all the components, including its own operating system, on top of the virtualized hardware.</p>
-<p>Container deployment era: Containers are similar to VMs, but they have relaxed isolation properties to share the Operating System (OS) among the applications. Therefore, containers are considered lightweight. Similar to a VM, a container has its own filesystem, share of CPU, memory, process space, and more. As they are decoupled from the underlying infrastructure, they are portable across clouds and OS distributions.</p>
+<p>While virtualized applications is highly preferred as oppose to IaaS approach (virtual machines), it makes sense to dig deeper in kubernetes and docker setup, regardless of the chosen managed service.</p>
+<div class="figure">
+<img src="img/conteiners.jpg" alt="" />
+<p class="caption">Cloud Strategy - image source Flexera</p>
+</div>
+<p>Kubernetes was founded by Ville Aikas, Joe Beda, Brendan Burns, and Craig McLuckie in collaboration with Google engineers Brian Grant and Tim Hockin in mid-2014. Google’s Borg system heavily influenced kubernetes design <span class="citation">(Verma et al. <a href="#ref-Borg" role="doc-biblioref">2015</a>)</span> <span class="citation">(Burns et al. <a href="#ref-BorgKubernetes" role="doc-biblioref">2016</a>)</span>. While the Borg project was implemented entirely in C++, Kubernetes was rewritten in Go language. The main goal of kubernetes was to build on the capabilities of containers and provide significant gains in programmer productivity while easing the management of the system.</p>
 <div class="figure">
 <img src="img/container_evolution.svg" alt="" />
 <p class="caption">Container evolution - kubernetes.io</p>
@@ -179,87 +172,25 @@ do not want to invest in new technology components as they think it as an additi
 <img src="img/components-of-kubernetes.svg" alt="" />
 <p class="caption">The components of a Kubernetes cluster - kubernetes.io</p>
 </div>
-<p>Control Plane Components
-The control plane’s components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment’s replicas field is unsatisfied).</p>
-<p>Control plane components can be run on any machine in the cluster. However, for simplicity, set up scripts typically start all control plane components on the same machine, and do not run user containers on this machine. See Creating Highly Available clusters with kubeadm for an example control plane setup that runs across multiple VMs.</p>
-<p>kube-apiserver
-The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane.</p>
-<p>The main implementation of a Kubernetes API server is kube-apiserver. kube-apiserver is designed to scale horizontally—that is, it scales by deploying more instances. You can run several instances of kube-apiserver and balance traffic between those instances.</p>
-<p>etcd
-Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.</p>
-<p>If your Kubernetes cluster uses etcd as its backing store, make sure you have a back up plan for those data.</p>
-<p>You can find in-depth information about etcd in the official documentation.</p>
-<p>kube-scheduler
-Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.</p>
-<p>Factors taken into account for scheduling decisions include: individual and collective resource requirements, hardware/software/policy constraints, affinity and anti-affinity specifications, data locality, inter-workload interference, and deadlines.</p>
-<p>kube-controller-manager
-Control plane component that runs controller processes.</p>
-<p>Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.</p>
-<p>Some types of these controllers are:</p>
-<p>Node controller: Responsible for noticing and responding when nodes go down.
-Job controller: Watches for Job objects that represent one-off tasks, then creates Pods to run those tasks to completion.
-Endpoints controller: Populates the Endpoints object (that is, joins Services &amp; Pods).
-Service Account &amp; Token controllers: Create default accounts and API access tokens for new namespaces.
-cloud-controller-manager
-A Kubernetes control plane component that embeds cloud-specific control logic. The cloud controller manager lets you link your cluster into your cloud provider’s API, and separates out the components that interact with that cloud platform from components that only interact with your cluster.
-The cloud-controller-manager only runs controllers that are specific to your cloud provider. If you are running Kubernetes on your own premises, or in a learning environment inside your own PC, the cluster does not have a cloud controller manager.</p>
-<p>As with the kube-controller-manager, the cloud-controller-manager combines several logically independent control loops into a single binary that you run as a single process. You can scale horizontally (run more than one copy) to improve performance or to help tolerate failures.</p>
-<p>The following controllers can have cloud provider dependencies:</p>
-<p>Node controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
-Route controller: For setting up routes in the underlying cloud infrastructure
-Service controller: For creating, updating and deleting cloud provider load balancers
-Node Components
-Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.</p>
-<p>kubelet
-An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.</p>
-<p>The kubelet takes a set of PodSpecs that are provided through various mechanisms and ensures that the containers described in those PodSpecs are running and healthy. The kubelet doesn’t manage containers which were not created by Kubernetes.</p>
-<p>kube-proxy
-kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.</p>
-<p>kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.</p>
-<p>kube-proxy uses the operating system packet filtering layer if there is one and it’s available. Otherwise, kube-proxy forwards the traffic itself.</p>
-<p>Container runtime
-The container runtime is the software that is responsible for running containers.</p>
-<p>Kubernetes supports several container runtimes: Docker, containerd, CRI-O, and any implementation of the Kubernetes CRI (Container Runtime Interface).</p>
-<p>Addons
-Addons use Kubernetes resources (DaemonSet, Deployment, etc) to implement cluster features. Because these are providing cluster-level features, namespaced resources for addons belong within the kube-system namespace.</p>
-<p>Selected addons are described below; for an extended list of available addons, please see Addons.</p>
-<p>DNS
-While the other addons are not strictly required, all Kubernetes clusters should have cluster DNS, as many examples rely on it.</p>
-<p>Cluster DNS is a DNS server, in addition to the other DNS server(s) in your environment, which serves DNS records for Kubernetes services.</p>
-<p>Containers started by Kubernetes automatically include this DNS server in their DNS searches.</p>
-<p>Web UI (Dashboard)
-Dashboard is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage and troubleshoot applications running in the cluster, as well as the cluster itself.</p>
-<p>Container Resource Monitoring
-Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.</p>
-<p>Cluster-level Logging</p>
 </div>
-<div id="use-case" class="section level2">
-<h2><span class="header-section-number">1.4</span> Use case</h2>
-<p>R programming language and it’s ecosystem.</p>
-<p>The philosophy of docker is to encapsulate software code and all its dependencies so that it can run uniformly and consistently on any infrastructure, namely, the containerization strategy. R Shiny apps usually have many package dependencies. We’ll first test its running on a local computer and then make them work remotely. Without containerization by docker, we’ll have to make sure all the computers that run the apps have the same running environment. That means we’ll spend much effort installing and configuring numerous software and packages. And when a package gets updated on the test computer, it has to be updated in all the other ones. We can see it will easily become painful to manage multiple R shiny apps in this way. With docker, we can pack the apps, their dependencies, and the running environment as a whole image. The image can be copied to other computers and we can just start running the apps (as long as that computer has docker installed). Without being disrupted by tedious installations and configurations, this type of practice greatly speeds up the workflow of software development and deployment.</p>
-<p><a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35" class="uri">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a></p>
-<p>When it comes to managed Kubernetes services, Google Kubernetes Engine (GKE) is a great choice if you are looking for a container orchestration platform that offers advanced scalability and configuration flexibility. GKE gives you complete control over every aspect of container orchestration, from networking, to storage, to how you set up observability—in addition to supporting stateful application use cases. However, if your application does not need that level of cluster configuration and monitoring, then fully managed Cloud Run might be the right solution for you.</p>
-<p>Cloud Run is intended for those who focus on container-based development versus using source-based systems. The idea is that containers provide separation of duties between the developer and the platform where the container executes.</p>
-<p>The serverless benefits are also compelling. While some people can accurately size resources, and even leverage reserved instances at a discount, most enterprises struggle to manage cloud operations within cost parameters. Serverless provides more fine-grained billing.</p>
-<p><img src="img/Cloud-Run.jpeg" alt="Cloud Run - cloud.google.com" />
-Reason to choose Cloud Run i/o Kubernetes</p>
-<p>With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, your service is merely available and you are only billed for actual consumption. If your service not being called, your costs are zero. Another advantage is that you don’t have to predict your utilization needs and allocate sufficient nodes. Scaling happens automatically for you.
-<a href="https://stackoverflow.com/questions/55786955/whats-the-value-proposition-of-running-cloud-run-versus-a-normal-service-in-gke" class="uri">https://stackoverflow.com/questions/55786955/whats-the-value-proposition-of-running-cloud-run-versus-a-normal-service-in-gke</a></p>
-<p>Easy deployment of microservices: Deploy a containerized microservice with a single command without requiring any additional service-specific configuration.
-Simple and unified developer experience: Helps to quickly deploy and manage services that automatically scales up depending on traffic.
-Run HTTP services: Allow to create HTTP services that respond to all normal HTTP methods like POST, GET, etc.
-Pay‐per‐use: Only pay when your code is running
-Support for code written in any language: Cloud Run relies on containers, thus you’ll be able to write code in any language, exploitation any binary and framework.
-Integrated logging and monitoring: To ensure the health of an application, it is integrated with Stackdriver Monitoring, Logging, and Error Reporting
-Knative compatible: Cloud Run is constructed on the Knative open‐source project, enabling portability of your workloads across platforms.
-<a href="https://tudip.com/blog-post/gke-or-cloud-run-which-should-you-use/" class="uri">https://tudip.com/blog-post/gke-or-cloud-run-which-should-you-use/</a></p>
-<p>Google Kubernetes Engine (GKE) provides a managed environment for deploying, managing, and scaling your containerized applications using Google infrastructure.
-Cloud Run is a service by Google Cloud Platform to run your stateless HTTP containers without worrying about provisioning machines, clusters or auto-scaling.
-<a href="https://medium.com/google-cloud/continuous-deployment-to-cloud-run-on-google-kubernetes-engine-ebe49bd956bf" class="uri">https://medium.com/google-cloud/continuous-deployment-to-cloud-run-on-google-kubernetes-engine-ebe49bd956bf</a></p>
+<div id="use-case-r-case" class="section level2">
+<h2><span class="header-section-number">1.4</span> Use Case (R Case)</h2>
+<p>R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury in out of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps and APIs having a cloud provider selected.</p>
+<div class="figure">
+<img src="img/R.png" alt="" />
+<p class="caption">R applications - image source ds4ps.org</p>
+</div>
+<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking, to storage, to how you set up observability—in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
+<div class="figure">
+<img src="img/Cloud-Run.jpeg" alt="" />
+<p class="caption">Cloud Run - cloud.google.com</p>
+</div>
+<p>There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should really aim for the simplicity not only for development flow, but the application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling portability of the workflows.</p>
 <div class="figure">
 <img src="img/cloudrun.jpg" alt="" />
-<p class="caption">Cloud Run Process - <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
+<p class="caption">Cloud Run Process - image source <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
 </div>
+<p><a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35" class="uri">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a></p>
 <p><a href="https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/" class="uri">https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/</a></p>
 <p><a href="https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/" class="uri">https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/</a></p>
 </div>
@@ -278,8 +209,14 @@ Cloud Run is a service by Google Cloud Platform to run your stateless HTTP conta
 <div id="ref-CloudMigrationReview">
 <p>Iqbal, Arif, and Ricardo Colomo-Palacios. 2019. “Key Opportunities and Challenges of Data Migration in Cloud: Results from a Multivocal Literature Review.” <em>Procedia Computer Science</em> 164: 48–55. <a href="https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153">https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153</a>.</p>
 </div>
+<div id="ref-cloudautomation">
+<p>Jayachandran, Prassanna, Anjali Pawar, and Neelanarayanan Venkataraman. 2017. “A Review of Existing Cloud Automation Tools.” <em>Asian Journal of Pharmaceutical and Clinical Research</em> 10 (July): 471. <a href="https://doi.org/10.22159/ajpcr.2017.v10s1.20519">https://doi.org/10.22159/ajpcr.2017.v10s1.20519</a>.</p>
+</div>
 <div id="ref-CloudSLA">
 <p>Odun-Ayo, Isaac, Olasupo Ajayi, and Nicholas Omoregbe. 2017. “Cloud Service Level Agreements – Issues and Development.” In <em>2017 International Conference on Next Generation Computing and Information Systems (Icngcis)</em>, 1–6. <a href="https://doi.org/10.1109/ICNGCIS.2017.18">https://doi.org/10.1109/ICNGCIS.2017.18</a>.</p>
+</div>
+<div id="ref-awsmigration">
+<p>Orban, Stephen. 2016. “6 Strategies for Migrating Applications to the Clouds,” November. <a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/</a>.</p>
 </div>
 <div id="ref-Borg">
 <p>Verma, Abhishek, Luis Pedrosa, Madhukar R. Korupolu, David Oppenheimer, Eric Tune, and John Wilkes. 2015. “Large-Scale Cluster Management at Google with Borg.” In <em>Proceedings of the European Conference on Computer Systems (Eurosys)</em>. Bordeaux, France.</p>
@@ -336,7 +273,7 @@ gitbook.start({
 "link": "https://github.com/kibiras/bookdown/blob/master/index.Rmd",
 "text": null
 },
-"download": null,
+"download": ["CloudTechnologies.pdf", "CloudTechnologies.epub", "CloudTechnologies.mobi"],
 "search": {
 "engine": "fuse",
 "options": null

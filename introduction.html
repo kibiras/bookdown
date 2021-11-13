@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | FMISD19004 Cloud Computing Technologies</title>
-  <meta name="description" content="References | FMISD19004 Cloud Computing Technologies" />
+  <title>FMISD19004 Cloud Computing Technologies</title>
+  <meta name="description" content="FMISD19004 Cloud Computing Technologies" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | FMISD19004 Cloud Computing Technologies" />
+  <meta property="og:title" content="FMISD19004 Cloud Computing Technologies" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | FMISD19004 Cloud Computing Technologies" />
+  <meta name="twitter:title" content="FMISD19004 Cloud Computing Technologies" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="part-iii-tba.html"/>
 
+<link rel="next" href="moving-to-cloud.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -73,7 +73,7 @@
 <li><a href="./">Cloud computing Technologies</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html"><i class="fa fa-check"></i><b>1</b> Moving to cloud</a><ul>
 <li class="chapter" data-level="1.1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#managing-sla-slo-requirements-on-clouds-through-scalability-and-reliability"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements on clouds through scalability and reliability</a></li>
 <li class="chapter" data-level="1.2" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#migration-to-cloud-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration to cloud approaches</a></li>
@@ -111,55 +111,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-
-<div id="refs" class="references">
-<div>
-<p>Alam, Tanweer. 2020. “Cloud Computing and Its Role in the Information Technology.” <em>SSRN Electronic Journal</em>, January. <a href="https://doi.org/10.2139/ssrn.3639063">https://doi.org/10.2139/ssrn.3639063</a>.</p>
+<div id="header">
+<h1 class="title">FMISD19004 Cloud Computing Technologies</h1>
+<p class="author"><em>Kęstutis Daugėla</em></p>
+<p class="date"><em>2021-11-13</em></p>
 </div>
-<div>
-<p>Aljoumah, Eman, Fajer Al-Mousawi, Imtiaz Ahmad, Maha Al-Shammri, and Zahraa Al-Jady. 2015. “SLA in Cloud Computing Architectures: A Comprehensive Study.” <em>International Journal of Grid and Distributed Computing</em> 8: 7–32.</p>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>The underlying concept of cloud computing was introduced way back in 1960s by John McCarthy in his book, “The challenge of the Computer Utility”. His opinion was that “computation may someday be organized as a public utility.” The rest became history and the majority of the sofware used now is running in the cloud seamlessly <span class="citation">[@CloudHistoryOverview]</span>.</p>
+<div class="figure">
+<img src="img/evolution_of_cloud.png" alt="" />
+<p class="caption">The history of the cloud - image source <a href="https://itchronicles.com/" class="uri">https://itchronicles.com/</a></p>
 </div>
-<div>
-<p>Bairagi, Swati, and Annkur Bang. 2015. <em>Cloud Computing: History, Architecture, Security Issues</em>.</p>
+<p>Cloud can solve a lot of problems nowadays - starting with reduced cost, enhanced security and flexible approach <span class="citation">[@CloudReview]</span> up to sustainability <span class="citation">[@CloudSustainability]</span> and accessibility around the world. Continuous Integration and Deployment (CI/CD) is easier then even treating now only the applications, but the whole infrastructure as code. This leads to enhanced productivity and cost optimization <span class="citation">[@CloudAutomation]</span>.</p>
+<p>Is there anything revolutional in the cloud offerings today? Definitely no - people used these capabilities for ages. The only difference is the scale and popularity these days.</p>
+<p>Cloud services usually are grouped in three categories:</p>
+<ul>
+<li>SaaS (Software as a service) is a software distribution model in which a cloud provider hosts applications and makes them available to end users over the internet</li>
+<li>PaaS (Platform as a service) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications</li>
+<li>IaaS (Infrastructure as a service) is a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis</li>
+</ul>
+<div class="figure">
+<img src="img/saas-vs-paas-vs-iaas-breakdown.jpg" alt="" />
+<p class="caption">IaaS vs PaaS vs SaaS - image source <a href="https://www.bigcommerce.com/blog/saas-vs-paas-vs-iaas/" class="uri">https://www.bigcommerce.com/blog/saas-vs-paas-vs-iaas/</a></p>
 </div>
-<div>
-<p>Burns, Brendan, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes. 2016. “Borg, Omega, and Kubernetes.” <em>ACM Queue</em> 14: 70–93. <a href="http://queue.acm.org/detail.cfm?id=2898444">http://queue.acm.org/detail.cfm?id=2898444</a>.</p>
-</div>
-<div>
-<p>Garg, Somya, and Satvik Garg. 2019. “Automated Cloud Infrastructure, Continuous Integration and Continuous Delivery Using Docker with Robust Container Security.” In. <a href="https://doi.org/10.1109/MIPR.2019.00094">https://doi.org/10.1109/MIPR.2019.00094</a>.</p>
-</div>
-<div>
-<p>Iqbal, Arif, and Ricardo Colomo-Palacios. 2019. “Key Opportunities and Challenges of Data Migration in Cloud: Results from a Multivocal Literature Review.” <em>Procedia Computer Science</em> 164: 48–55. <a href="https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153">https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153</a>.</p>
-</div>
-<div>
-<p>Jayachandran, Prassanna, Anjali Pawar, and Neelanarayanan Venkataraman. 2017. “A Review of Existing Cloud Automation Tools.” <em>Asian Journal of Pharmaceutical and Clinical Research</em> 10 (July): 471. <a href="https://doi.org/10.22159/ajpcr.2017.v10s1.20519">https://doi.org/10.22159/ajpcr.2017.v10s1.20519</a>.</p>
-</div>
-<div>
-<p>Odun-Ayo, Isaac, Olasupo Ajayi, and Nicholas Omoregbe. 2017. “Cloud Service Level Agreements – Issues and Development.” In <em>2017 International Conference on Next Generation Computing and Information Systems (Icngcis)</em>, 1–6. <a href="https://doi.org/10.1109/ICNGCIS.2017.18">https://doi.org/10.1109/ICNGCIS.2017.18</a>.</p>
-</div>
-<div>
-<p>Orban, Stephen. 2016. “6 Strategies for Migrating Applications to the Clouds,” November. <a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/</a>.</p>
-</div>
-<div>
-<p>Parthasarathy, Vidhyalakshmi, and Vikas Kumar. 2012. “Cloud Computing for Business Sustainability.” <em>Asia Pacific Journal of Management Research and Innovations</em> 8 (December): 461–74. <a href="https://doi.org/10.1177/2319510X13481905">https://doi.org/10.1177/2319510X13481905</a>.</p>
-</div>
-<div>
-<p>Raj Bala, Bob Gill. 2021. “Magic Quadrant for Cloud Infrastructure and Platform Services,” July. <a href="https://www.gartner.com/doc/reprints?id=1-271OE4VR&amp;ct=210802&amp;st=sb">https://www.gartner.com/doc/reprints?id=1-271OE4VR&amp;ct=210802&amp;st=sb</a>.</p>
-</div>
-<div>
-<p>Srivastava, Priyanshu, and Rizwan Khan. 2018. “A Review Paper on Cloud Computing.” <em>International Journal of Advanced Research in Computer Science and Software Engineering</em> 8 (June): 17. <a href="https://doi.org/10.23956/ijarcsse.v8i6.711">https://doi.org/10.23956/ijarcsse.v8i6.711</a>.</p>
-</div>
-<div>
-<p>Surbiryala, Jayachander, and Chunming Rong. 2019. “Cloud Computing: History and Overview.” In <em>2019 Ieee Cloud Summit</em>, 1–7. <a href="https://doi.org/10.1109/CloudSummit47114.2019.00007">https://doi.org/10.1109/CloudSummit47114.2019.00007</a>.</p>
-</div>
-<div>
-<p>Verma, Abhishek, Luis Pedrosa, Madhukar R. Korupolu, David Oppenheimer, Eric Tune, and John Wilkes. 2015. “Large-Scale Cluster Management at Google with Borg.” In <em>Proceedings of the European Conference on Computer Systems (Eurosys)</em>. Bordeaux, France.</p>
-</div>
-<div>
-<p>Wang, Zhixiao, Wenyao Yan, and Wendong Wang. 2020. “Revisiting Cloud Migration: Strategies and Methods.” <em>Journal of Physics: Conference Series</em> 1575 (June): 012232. <a href="https://doi.org/10.1088/1742-6596/1575/1/012232">https://doi.org/10.1088/1742-6596/1575/1/012232</a>.</p>
-</div>
+<p>However, despite the gain achieved from cloud computing, the organizations are slow in accepting it due to security issues and challenges associated with it <span class="citation">[@Cloud-computing]</span>.</p>
+<p>In terms of the leading cloud service providers, the same three names usually appears - Amazon (AWS), Microsoft (Azure) and Google (GCP). These are also one of the 5 largest companies in the world by market capitalization. While AWS has strength in engineering supply chain, large financial commitments and innovation, Google demonstrates a significant revenue growth, innovation velocity and show promising results in surveys. Moreover, since Google developed Kubernetes internally, GCP has the most fully featured Kubernetes service of any provider in this market. Microsoft, of the other hand, already had a good reputation and trust as a software company <span class="citation">[@Gartner]</span>.</p>
+<div class="figure">
+<img src="img/gartner.png" alt="" />
+<p class="caption">Magic Quadrant for Cloud Infrastructure and Platform Services</p>
 </div>
 </div>
             </section>
@@ -167,8 +147,8 @@
           </div>
         </div>
       </div>
-<a href="part-iii-tba.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
+<a href="moving-to-cloud.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +179,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/kibiras/bookdown/edit/master/index.Rmd",
+"link": "https://github.com/kibiras/bookdown/edit/master/%s",
 "text": "Edit"
 },
 "history": {
@@ -207,14 +187,11 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/kibiras/bookdown/blob/master/index.Rmd",
+"link": "https://github.com/kibiras/bookdown/blob/master/%s",
 "text": null
 },
-"download": ["CloudTechnologies.pdf", "CloudTechnologies.epub", "CloudTechnologies.mobi"],
-"search": {
-"engine": "fuse",
-"options": null
-},
+"download": null,
+"search": false,
 "toc": {
 "collapse": "subsection"
 }

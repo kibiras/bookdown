@@ -1,6 +1,9 @@
 bookdown::gitbook:
   css: style.css
+  output:
+    pdf_document
   config:
+    download: ["pdf", "epub", "mobi"]
     toc:
       before: |
         <li><a href="./">Cloud computing Technologies</a></li>

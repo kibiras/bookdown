@@ -26,3 +26,5 @@ part-iii-tba
 kubernetas-in-a-nutshell
 kubernetes-in-a-nutshell
 moving-to-cloud
+analytics-use-case
+use-case-r-case
