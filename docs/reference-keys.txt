@@ -28,3 +28,4 @@ kubernetes-in-a-nutshell
 moving-to-cloud
 analytics-use-case
 use-case-r-case
+managing-sla-slo-requirements-on-clouds

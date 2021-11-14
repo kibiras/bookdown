@@ -15,7 +15,7 @@ citation_package: natbib
 # Introduction {-}
 
 
-The underlying concept of cloud computing was introduced way back in 1960s by John McCarthy in his book, “The challenge of the Computer Utility”. His opinion was that “computation may someday be organized as a public utility.” The rest became history and the majority of the sofware used now is running in the cloud seamlessly [@CloudHistoryOverview].
+The underlying concept of cloud computing was introduced way back in 1960s by John McCarthy in his book, “The challenge of the Computer Utility”. His opinion was that “computation may someday be organized as a public utility.” The rest became history and the majority of the software used now is running in the cloud seamlessly [@CloudHistoryOverview].
 
 ![The history of the cloud - image source https://itchronicles.com/](img/evolution_of_cloud.png)
 
@@ -34,7 +34,7 @@ Cloud services usually are grouped in three categories:
 However,  despite  the  gain  achieved  from  cloud computing, the organizations are slow in accepting it due to security issues and  challenges associated with it [@Cloud-computing].
 
 
-In terms of the leading cloud service providers, the same three names usually appears - Amazon (AWS), Microsoft (Azure) and Google (GCP). These are also one of the 5 largest companies in the world by market capitalization. While AWS has strength in engineering supply chain, large financial commitments and innovation, Google demonstrates a significant revenue growth, innovation velocity and show promising results in surveys. Moreover, since Google developed Kubernetes internally, GCP has the most fully featured Kubernetes service of any provider in this market. Microsoft, of the other hand, already had a good reputation and trust as a software company [@Gartner].
+In terms of the leading cloud service providers, the same three names usually appears - Amazon (AWS), Microsoft (Azure) and Google (GCP). These are also one of the 5 largest companies in the world by market capitalization. While AWS has strength in engineering supply chain, large financial commitments and innovation, Google demonstrates a significant revenue growth, innovation velocity and shows promising results in surveys. Moreover, since Google developed Kubernetes internally, GCP has the most fully featured Kubernetes service of any provider in this market. Microsoft, of the other hand, already had a good reputation and trust as a software company [@Gartner].
 
 ![Magic Quadrant for Cloud Infrastructure and Platform Services](img/gartner.png)
 
@@ -43,10 +43,7 @@ In terms of the leading cloud service providers, the same three names usually ap
 
 
 
-
-
-
-## Managing SLA (SLO) requirements on clouds through scalability and reliability
+## Managing SLA (SLO) requirements on clouds
 
 One of the biggest challenge for potential cloud customers is to evaluate SLA’s of cloud vendors [@CloudSLA] [@CloudSLAComprehensive]. There are four major cloud setups in general:
 
@@ -58,30 +55,38 @@ One of the biggest challenge for potential cloud customers is to evaluate SLA’
 
 ![Cloud Strategy - image source Flexera](img/cloudstrategy.png)
 
-It makes sense to compare the actual numbers between the  cloud strategy presented in 2019 with the actual survey made in 2021. Almost every cloud-ready company uses the public cloud (97%) to some extent leaving hybrid cloud setup the dominant (78%). 
+It makes sense to compare the actual numbers between the  cloud strategy presented in 2019 with the actual survey made in 2021. Almost every cloud-ready company uses the public cloud (97%) to some extent leaving hybrid cloud setup the dominant one (78%). Companies rarely use public or private cloud alone (19% vs 2% respectively).
 
 ![Cloud Strategy - image source Flexera](img/types-of-clouds-used.png)
 
+When it comes to functionality, cloud providers could cover all of customers needs either via managed services (e.g. BigQuery, Amazon Redshift, S3, Cloud Pub/Sub) or compute services (e.g. Virtual Machines, Compute engine). While Amazon has the biggest number of internal services and market share, Azure and GCP are chasing the leader rapidly. 
 
-![Cloud Services comparison - image source n-IX.com](img/comparison.jpg)
+![Cloud Services comparison - image source N-IX.com (2020)](img/comparison.jpg)
+
+Another important factor of choosing a cloud provider is the price. In this area GCP provides the lowest price for general purpose machines, while compute optimized machines are a little bit cheaper in AWS. Azure provides the best price for memory optimized machines. However, these cost could be optimized significantly by having an agreement with the cloud provider or implementing resource optimizations afterwards. 
 
 ![Pricing comparison - image source cast.ai](img/pricing.PNG)
 
+Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles [@CloudRole]. Gartner predicts that through 2025, 99% of cloud security failures will be the customer's fault.
+
+Having all these things in mind, it is really hard to draw a conclusion which Cloud provider to choose. In the end of the day it depends on the specific business requirements, regulations and personal preference. For instance, it your architecture is heavily based on containers and microservices, GCP could be the best choice since it has the most complete container-based model. The biggest selling point of AWS is that AWS has the greatest Global reach while Azure has more experience in hybrid cloud offerings and Windows-based organization support.
+
+
 ![Conclusion - image source www.varonis.com](img/varonis_comparison.png)
 
-Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles [@CloudRole].
+
 
 
 ## Migration to cloud approaches
 
-The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment. Automation is an important aspect of the migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomation].
+The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment [@CloudMigrationReview]. Automation is an important aspect of the migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomation].
 
 ![Cloud migration strategy - image source aws.amazon.com](img/migration_strat.png)
 
 
-According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budgets are allocated through multiple services. E.g. in 2018 on average they were spent accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS. Gartner predicts that through 2025, 99% of cloud security failures will be the customer's fault.
+According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budgets are allocated through multiple services. E.g. in 2018 on average they were spent accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS. 
 
-[@CloudMigrationReview]
+
 
 ## Kubernetes in a nutshell
 
