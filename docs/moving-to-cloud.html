@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -192,6 +256,39 @@
 <img src="img/cloudrun.jpg" alt="" />
 <p class="caption">Cloud Run Process - image source <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
 </div>
+<p>Let’s take the Shiny app example. First we need to build an app and containerize it. <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="moving-to-cloud.html#cb1-1"></a><span class="ex">FROM</span> rocker/shiny-verse:latest</span>
+<span id="cb1-2"><a href="moving-to-cloud.html#cb1-2"></a><span class="ex">RUN</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install -y \</span>
+<span id="cb1-3"><a href="moving-to-cloud.html#cb1-3"></a>    sudo \</span>
+<span id="cb1-4"><a href="moving-to-cloud.html#cb1-4"></a>    pandoc \</span>
+<span id="cb1-5"><a href="moving-to-cloud.html#cb1-5"></a>    pandoc-citeproc \</span>
+<span id="cb1-6"><a href="moving-to-cloud.html#cb1-6"></a>    libcurl4-gnutls-dev \</span>
+<span id="cb1-7"><a href="moving-to-cloud.html#cb1-7"></a>    libcairo2-dev \</span>
+<span id="cb1-8"><a href="moving-to-cloud.html#cb1-8"></a>    libxt-dev \</span>
+<span id="cb1-9"><a href="moving-to-cloud.html#cb1-9"></a>    libssl-dev \</span>
+<span id="cb1-10"><a href="moving-to-cloud.html#cb1-10"></a>    libssh2-1-dev</span>
+<span id="cb1-11"><a href="moving-to-cloud.html#cb1-11"></a><span class="ex">RUN</span> R -e <span class="st">&quot;install.packages(&#39;shinydashboard&#39;, repos=&#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
+<span id="cb1-12"><a href="moving-to-cloud.html#cb1-12"></a><span class="ex">COPY</span> shiny-server.conf  /etc/shiny-server/shiny-server.conf</span>
+<span id="cb1-13"><a href="moving-to-cloud.html#cb1-13"></a><span class="ex">COPY</span> /app /srv/shiny-server/</span>
+<span id="cb1-14"><a href="moving-to-cloud.html#cb1-14"></a><span class="ex">RUN</span> rm /srv/shiny-server/index.html</span>
+<span id="cb1-15"><a href="moving-to-cloud.html#cb1-15"></a><span class="ex">EXPOSE</span> 80</span>
+<span id="cb1-16"><a href="moving-to-cloud.html#cb1-16"></a><span class="ex">COPY</span> shiny-server.sh /usr/bin/shiny-server.sh</span>
+<span id="cb1-17"><a href="moving-to-cloud.html#cb1-17"></a><span class="ex">RUN</span> [<span class="st">&quot;chmod&quot;</span>, <span class="st">&quot;+x&quot;</span>, <span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span>
+<span id="cb1-18"><a href="moving-to-cloud.html#cb1-18"></a><span class="ex">CMD</span> [<span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span></code></pre></div>
+<p>Some of the shiny server nuances require to make sure that logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="moving-to-cloud.html#cb2-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb2-2"><a href="moving-to-cloud.html#cb2-2"></a><span class="fu">mkdir</span> -p /var/log/shiny-server</span>
+<span id="cb2-3"><a href="moving-to-cloud.html#cb2-3"></a><span class="fu">chown</span> shiny.shiny /var/log/shiny-server</span>
+<span id="cb2-4"><a href="moving-to-cloud.html#cb2-4"></a><span class="bu">exec</span> shiny-server <span class="op">&gt;&gt;</span> /var/log/shiny-server.log <span class="op">2&gt;&amp;1</span></span></code></pre></div>
+<div class="figure">
+<img src="img/cloudrundeployments.PNG" alt="" />
+<p class="caption">Cloud Run Deployments</p>
+</div>
+<div class="figure">
+<img src="img/cloudrunmetrics.PNG" alt="" />
+<p class="caption">Cloud Run Metrics</p>
+</div>
+<p>Application is already deployed and now can be reached via this URL <a href="https://shinydashboard-k6i6icomba-lz.a.run.app" class="uri">https://shinydashboard-k6i6icomba-lz.a.run.app</a></p>
 <p><a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35" class="uri">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a></p>
 <p><a href="https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/" class="uri">https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/</a></p>
 <p><a href="https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/" class="uri">https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/</a></p>
@@ -225,6 +322,9 @@
 </div>
 <div id="ref-CloudMigration">
 <p>Wang, Zhixiao, Wenyao Yan, and Wendong Wang. 2020. “Revisiting Cloud Migration: Strategies and Methods.” <em>Journal of Physics: Conference Series</em> 1575 (June): 012232. <a href="https://doi.org/10.1088/1742-6596/1575/1/012232">https://doi.org/10.1088/1742-6596/1575/1/012232</a>.</p>
+</div>
+<div id="ref-shinydocker">
+<p>Xu, Mingchu. 2020. “An Open-Source Solution to Deploy Enterprise-Level R Shiny Applications,” July. <a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a>.</p>
 </div>
 </div>
             </section>

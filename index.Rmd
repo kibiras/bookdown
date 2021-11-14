@@ -118,6 +118,46 @@ There are even more reasons to choose Cloud Run instead of Kubernetes cluster. T
 
 ![Cloud Run Process - image source https://medium.com/google-cloud](img/cloudrun.jpg)
 
+Let's take the Shiny app example. First we need to build an app and containerize it. [@shinydocker]
+
+```bash
+FROM rocker/shiny-verse:latest
+RUN apt-get update && apt-get install -y \
+    sudo \
+    pandoc \
+    pandoc-citeproc \
+    libcurl4-gnutls-dev \
+    libcairo2-dev \
+    libxt-dev \
+    libssl-dev \
+    libssh2-1-dev
+RUN R -e "install.packages('shinydashboard', repos='http://cran.rstudio.com/')"
+COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
+COPY /app /srv/shiny-server/
+RUN rm /srv/shiny-server/index.html
+EXPOSE 80
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+RUN ["chmod", "+x", "/usr/bin/shiny-server.sh"]
+CMD ["/usr/bin/shiny-server.sh"]
+```
+
+Some of the shiny server nuances require to make sure that logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.
+
+```bash
+#!/bin/sh
+mkdir -p /var/log/shiny-server
+chown shiny.shiny /var/log/shiny-server
+exec shiny-server >> /var/log/shiny-server.log 2>&1
+```
+
+![Cloud Run Deployments](img/cloudrundeployments.PNG)
+
+
+![Cloud Run Metrics](img/cloudrunmetrics.PNG)
+
+Application is already deployed and now can be reached via this URL https://shinydashboard-k6i6icomba-lz.a.run.app
+
+
 https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35
 
 https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/
