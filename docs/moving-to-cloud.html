@@ -24,7 +24,7 @@
 <meta name="author" content="Kęstutis Daugėla" />
 
 
-<meta name="date" content="2021-11-14" />
+<meta name="date" content="2021-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,9 +179,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 1</span> Moving to cloud</h1>
 <div id="managing-sla-slo-requirements-on-clouds" class="section level2">
 <h2><span class="header-section-number">1.1</span> Managing SLA (SLO) requirements on clouds</h2>
-<p>One of the biggest challenge for potential cloud customers is to evaluate SLA’s of cloud vendors <span class="citation">(Odun-Ayo, Ajayi, and Omoregbe <a href="#ref-CloudSLA" role="doc-biblioref">2017</a>)</span> <span class="citation">(Aljoumah et al. <a href="#ref-CloudSLAComprehensive" role="doc-biblioref">2015</a>)</span>. There are four major cloud setups in general:</p>
+<p>One of the biggest challenges for potential cloud customers is to evaluate SLA’s of cloud vendors <span class="citation">(Odun-Ayo, Ajayi, and Omoregbe <a href="#ref-CloudSLA" role="doc-biblioref">2017</a>)</span> <span class="citation">(Aljoumah et al. <a href="#ref-CloudSLAComprehensive" role="doc-biblioref">2015</a>)</span>. There are four major cloud setups in general:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Public cloud</strong>. In this setup users can access the resource pool that is managed by a cloud provider.Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.</li>
+<li><strong>Public cloud</strong>. In this setup, users can access the resource pool that is managed by a cloud provider. Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.</li>
 <li><strong>Private cloud</strong>. The vendor provides the services which prevent public assess (e.g. dedicated servers)</li>
 <li><strong>Community cloud</strong> The cloud services are provided to a specified group where all members are entitled to equal access to the shared services.</li>
 <li><strong>Hybrid cloud</strong> The cloud services are provided as multiple cloud combustion (public cloud, private cloud, and community cloud)</li>
@@ -195,18 +195,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="img/types-of-clouds-used.png" alt="" />
 <p class="caption">Cloud Strategy - image source Flexera</p>
 </div>
-<p>When it comes to functionality, cloud providers could cover all of customers needs either via managed services (e.g. BigQuery, Amazon Redshift, S3, Cloud Pub/Sub) or compute services (e.g. Virtual Machines, Compute engine). While Amazon has the biggest number of internal services and market share, Azure and GCP are chasing the leader rapidly.</p>
+<p>When it comes to functionality, cloud providers could cover all of the customers needs either via managed services (e.g. BigQuery, Amazon Redshift, S3, Cloud Pub/Sub) or compute services (e.g. Virtual Machines, Compute engine). While Amazon has the biggest number of internal services and market share, Azure and GCP are chasing the leader rapidly.</p>
 <div class="figure">
 <img src="img/comparison.jpg" alt="" />
 <p class="caption">Cloud Services comparison - image source N-IX.com (2020)</p>
 </div>
-<p>Another important factor of choosing a cloud provider is the price. In this area GCP provides the lowest price for general purpose machines, while compute optimized machines are a little bit cheaper in AWS. Azure provides the best price for memory optimized machines. However, these cost could be optimized significantly by having an agreement with the cloud provider or implementing resource optimizations afterwards.</p>
+<p>Another important factor in choosing a cloud provider is the price. In this area, GCP provides the lowest price for general purpose machines, while compute optimized machines are a little bit cheaper in AWS. Azure provides the best price for memory optimized machines. However, these costs could be optimized significantly by having an agreement with the cloud provider or implementing resource optimizations afterward.</p>
 <div class="figure">
 <img src="img/pricing.PNG" alt="" />
 <p class="caption">Pricing comparison - image source cast.ai</p>
 </div>
 <p>Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles <span class="citation">(Alam <a href="#ref-CloudRole" role="doc-biblioref">2020</a>)</span>. Gartner predicts that through 2025, 99% of cloud security failures will be the customer’s fault.</p>
-<p>Having all these things in mind, it is really hard to draw a conclusion which Cloud provider to choose. In the end of the day it depends on the specific business requirements, regulations and personal preference. For instance, it your architecture is heavily based on containers and microservices, GCP could be the best choice since it has the most complete container-based model. The biggest selling point of AWS is that AWS has the greatest Global reach while Azure has more experience in hybrid cloud offerings and Windows-based organization support.</p>
+<p>Having all these things in mind, it is really hard to draw a conclusion which Cloud provider to choose. At the end of the day, it depends on the specific business requirements, regulations, and personal preference. For instance, if the architecture is heavily based on containers and microservices, GCP could be the best choice since it has the most complete container-based model. The biggest selling point of AWS is that AWS has the greatest Global reach while Azure has more experience in hybrid cloud offerings and Windows-based organization support.</p>
 <div class="figure">
 <img src="img/varonis_comparison.png" alt="" />
 <p class="caption">Conclusion - image source www.varonis.com</p>
@@ -214,16 +214,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="migration-to-cloud-approaches" class="section level2">
 <h2><span class="header-section-number">1.2</span> Migration to cloud approaches</h2>
-<p>The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum <span class="citation">(Orban <a href="#ref-awsmigration" role="doc-biblioref">2016</a>)</span>. Cloud computing advocates that resources should be controlled on demand, and can be flexibly and elastically expanded and contracted according to the change of demand <span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span>. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment <span class="citation">(Iqbal and Colomo-Palacios <a href="#ref-CloudMigrationReview" role="doc-biblioref">2019</a>)</span>. Automation is an important aspect of the migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications <span class="citation">(Jayachandran, Pawar, and Venkataraman <a href="#ref-cloudautomation" role="doc-biblioref">2017</a>)</span>.</p>
+<p>The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum <span class="citation">(Orban <a href="#ref-awsmigration" role="doc-biblioref">2016</a>)</span>. Cloud computing advocates that resources should be controlled on demand, and can be flexibly and elastically expanded and contracted according to the change of demand <span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span>. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment <span class="citation">(Iqbal and Colomo-Palacios <a href="#ref-CloudMigrationReview" role="doc-biblioref">2019</a>)</span>. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications <span class="citation">(Jayachandran, Pawar, and Venkataraman <a href="#ref-cloudautomation" role="doc-biblioref">2017</a>)</span>.</p>
 <div class="figure">
 <img src="img/migration_strat.png" alt="" />
 <p class="caption">Cloud migration strategy - image source aws.amazon.com</p>
 </div>
-<p>According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budgets are allocated through multiple services. E.g. in 2018 on average they were spent accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS.</p>
+<p>According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budget is usually allocated through multiple services. E.g. in 2018 on average, the distribution of the budget accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS.</p>
 </div>
 <div id="kubernetes-in-a-nutshell" class="section level2">
 <h2><span class="header-section-number">1.3</span> Kubernetes in a nutshell</h2>
-<p>While virtualized applications is highly preferred as oppose to IaaS approach (virtual machines), it makes sense to dig deeper in kubernetes and docker setup, regardless of the chosen managed service.</p>
+<p>While virtualized applications are highly preferred as opposed to IaaS approach (virtual machines), it makes sense to dig deeper in kubernetes and docker setup, regardless of the chosen managed service.</p>
 <div class="figure">
 <img src="img/conteiners.jpg" alt="" />
 <p class="caption">Cloud Strategy - image source Flexera</p>
@@ -241,22 +241,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="use-case-r-case" class="section level2">
 <h2><span class="header-section-number">1.4</span> Use Case (R Case)</h2>
-<p>R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury in out of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps and APIs having a cloud provider selected.</p>
+<p>R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury of possessing of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps, and APIs having a cloud provider selected (GCP).</p>
 <div class="figure">
 <img src="img/R.png" alt="" />
 <p class="caption">R applications - image source ds4ps.org</p>
 </div>
-<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking, to storage, to how you set up observability—in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
+<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
 <div class="figure">
 <img src="img/Cloud-Run.jpeg" alt="" />
 <p class="caption">Cloud Run - cloud.google.com</p>
 </div>
-<p>There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should really aim for the simplicity not only for development flow, but the application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling portability of the workflows.</p>
-<div class="figure">
-<img src="img/cloudrun.jpg" alt="" />
-<p class="caption">Cloud Run Process - image source <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
-</div>
-<p>Let’s take the Shiny app example. First we need to build an app and containerize it. <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span></p>
+<p>There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling the portability of the workflows.</p>
+<p>Let’s take the Shiny app example. First we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span> <span class="citation">(Christensen <a href="#ref-shinydockerrun" role="doc-biblioref">2021</a>)</span>. Once application is finished, Dokerfile is needed with all the dependencies included:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="moving-to-cloud.html#cb1-1"></a><span class="ex">FROM</span> rocker/shiny-verse:latest</span>
 <span id="cb1-2"><a href="moving-to-cloud.html#cb1-2"></a><span class="ex">RUN</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install -y \</span>
 <span id="cb1-3"><a href="moving-to-cloud.html#cb1-3"></a>    sudo \</span>
@@ -275,11 +271,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-16"><a href="moving-to-cloud.html#cb1-16"></a><span class="ex">COPY</span> shiny-server.sh /usr/bin/shiny-server.sh</span>
 <span id="cb1-17"><a href="moving-to-cloud.html#cb1-17"></a><span class="ex">RUN</span> [<span class="st">&quot;chmod&quot;</span>, <span class="st">&quot;+x&quot;</span>, <span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span>
 <span id="cb1-18"><a href="moving-to-cloud.html#cb1-18"></a><span class="ex">CMD</span> [<span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span></code></pre></div>
-<p>Some of the shiny server nuances require to make sure that logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.</p>
+<p>Some of the shiny server nuances require to make sure that the logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="moving-to-cloud.html#cb2-1"></a><span class="co">#!/bin/sh</span></span>
 <span id="cb2-2"><a href="moving-to-cloud.html#cb2-2"></a><span class="fu">mkdir</span> -p /var/log/shiny-server</span>
 <span id="cb2-3"><a href="moving-to-cloud.html#cb2-3"></a><span class="fu">chown</span> shiny.shiny /var/log/shiny-server</span>
 <span id="cb2-4"><a href="moving-to-cloud.html#cb2-4"></a><span class="bu">exec</span> shiny-server <span class="op">&gt;&gt;</span> /var/log/shiny-server.log <span class="op">2&gt;&amp;1</span></span></code></pre></div>
+<p>Once the docker image is built, all we need to do is to push that image to Google Container Registry.</p>
+<div class="figure">
+<img src="img/cloudrun.jpg" alt="" />
+<p class="caption">Cloud Run Process - image source <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
+</div>
+<p>It is easy to monitor and track deployments in Google Cloud Console interface. Moreover, deployments can be fully automated via terraform and additional monitoring measures could be made in order to ensure correct application behavior.</p>
 <div class="figure">
 <img src="img/cloudrundeployments.PNG" alt="" />
 <p class="caption">Cloud Run Deployments</p>
@@ -289,9 +291,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Cloud Run Metrics</p>
 </div>
 <p>Application is already deployed and now can be reached via this URL <a href="https://shinydashboard-k6i6icomba-lz.a.run.app" class="uri">https://shinydashboard-k6i6icomba-lz.a.run.app</a></p>
-<p><a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35" class="uri">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a></p>
-<p><a href="https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/" class="uri">https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/</a></p>
-<p><a href="https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/" class="uri">https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/</a></p>
 </div>
 </div>
 <h3>References</h3>
@@ -304,6 +303,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-BorgKubernetes">
 <p>Burns, Brendan, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes. 2016. “Borg, Omega, and Kubernetes.” <em>ACM Queue</em> 14: 70–93. <a href="http://queue.acm.org/detail.cfm?id=2898444">http://queue.acm.org/detail.cfm?id=2898444</a>.</p>
+</div>
+<div id="ref-shinydockerrun">
+<p>Christensen, Peer. 2021. “Dockerizing and Deploying a Shiny Dashboard on Google Cloud,” April. <a href="https://towardsdatascience.com/dockerizing-and-deploying-a-shiny-dashboard-on-google-cloud-a990ceb3c33a">https://towardsdatascience.com/dockerizing-and-deploying-a-shiny-dashboard-on-google-cloud-a990ceb3c33a</a>.</p>
 </div>
 <div id="ref-CloudMigrationReview">
 <p>Iqbal, Arif, and Ricardo Colomo-Palacios. 2019. “Key Opportunities and Challenges of Data Migration in Cloud: Results from a Multivocal Literature Review.” <em>Procedia Computer Science</em> 164: 48–55. <a href="https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153">https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153</a>.</p>

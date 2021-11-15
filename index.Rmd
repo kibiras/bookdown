@@ -19,22 +19,22 @@ The underlying concept of cloud computing was introduced way back in 1960s by Jo
 
 ![The history of the cloud - image source https://itchronicles.com/](img/evolution_of_cloud.png)
 
-Cloud can solve a lot of problems nowadays - starting with reduced cost, enhanced security and flexible approach [@CloudReview] up to sustainability [@CloudSustainability] and accessibility around the world. Continuous Integration and Deployment (CI/CD) is easier then even treating now only the applications, but the whole infrastructure as code. This leads to enhanced productivity and cost optimization [@CloudAutomation]. 
+Cloud can solve a lot of problems nowadays - starting with reduced cost, enhanced security, and flexible approach [@CloudReview] up to sustainability [@CloudSustainability] and accessibility around the world. Continuous Integration and Deployment (CI/CD) is easier than even treating now only the applications, but the whole infrastructure as code. This leads to enhanced productivity and cost optimization [@CloudAutomation]. 
 
-Is there anything revolutional in the cloud offerings today? Definitely no - people used these capabilities for ages. The only difference is the scale and popularity these days.
+Is there anything revolutionary in the cloud offerings today? Definitely, no - people used these capabilities for ages. The only difference is the scale and popularity these days.
 
-Cloud services usually are grouped in three categories:
+Cloud services usually are grouped into three categories:
 
-* SaaS (Software as a service) is a software distribution model in which a cloud provider hosts applications and makes them available to end users over the internet
+* SaaS (Software as a service) is a software distribution model in which a cloud provider hosts applications and makes them available to end-users over the internet
 * PaaS (Platform as a service) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications
-* IaaS (Infrastructure as a service) is a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis
+* IaaS (Infrastructure as a service) is a type of cloud computing service that offers essential compute, storage, and networking resources on-demand, on a pay-as-you-go basis
 
 ![IaaS vs PaaS vs SaaS - image source https://www.bigcommerce.com/blog/saas-vs-paas-vs-iaas/](img/saas-vs-paas-vs-iaas-breakdown.jpg)
 
-However,  despite  the  gain  achieved  from  cloud computing, the organizations are slow in accepting it due to security issues and  challenges associated with it [@Cloud-computing].
+However,  despite  the  gain  achieved  from  cloud computing, organizations are slow in fully accepting it due to security issues and  challenges associated with it [@Cloud-computing].
 
 
-In terms of the leading cloud service providers, the same three names usually appears - Amazon (AWS), Microsoft (Azure) and Google (GCP). These are also one of the 5 largest companies in the world by market capitalization. While AWS has strength in engineering supply chain, large financial commitments and innovation, Google demonstrates a significant revenue growth, innovation velocity and shows promising results in surveys. Moreover, since Google developed Kubernetes internally, GCP has the most fully featured Kubernetes service of any provider in this market. Microsoft, of the other hand, already had a good reputation and trust as a software company [@Gartner].
+In terms of the leading cloud service providers, the same three names usually appear - Amazon (AWS), Microsoft (Azure), and Google (GCP). These are also one of the 5 largest companies in the world by market capitalization. While AWS has strength in the engineering supply chain, large financial commitments and innovation, Google demonstrates significant revenue growth, innovation velocity and shows promising results in surveys. Moreover, since Google developed Kubernetes internally, GCP has the most fully-featured Kubernetes service of any provider in this market. Microsoft, on the other hand, already had a good reputation and trust as a software company [@Gartner].
 
 ![Magic Quadrant for Cloud Infrastructure and Platform Services](img/gartner.png)
 
@@ -45,10 +45,10 @@ In terms of the leading cloud service providers, the same three names usually ap
 
 ## Managing SLA (SLO) requirements on clouds
 
-One of the biggest challenge for potential cloud customers is to evaluate SLA’s of cloud vendors [@CloudSLA] [@CloudSLAComprehensive]. There are four major cloud setups in general:
+One of the biggest challenges for potential cloud customers is to evaluate SLA’s of cloud vendors [@CloudSLA] [@CloudSLAComprehensive]. There are four major cloud setups in general:
 
 
-1) **Public cloud**. In this setup users can access the resource pool that is managed by a cloud provider.Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.
+1) **Public cloud**. In this setup, users can access the resource pool that is managed by a cloud provider. Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.
 2) **Private cloud**. The vendor provides the services which prevent public assess (e.g. dedicated servers)
 3) **Community cloud** The cloud services are provided to a specified group where all members are entitled to equal access to the shared services.
 4) **Hybrid cloud** The cloud services are provided as multiple cloud combustion (public cloud, private cloud, and community cloud)
@@ -59,17 +59,17 @@ It makes sense to compare the actual numbers between the  cloud strategy present
 
 ![Cloud Strategy - image source Flexera](img/types-of-clouds-used.png)
 
-When it comes to functionality, cloud providers could cover all of customers needs either via managed services (e.g. BigQuery, Amazon Redshift, S3, Cloud Pub/Sub) or compute services (e.g. Virtual Machines, Compute engine). While Amazon has the biggest number of internal services and market share, Azure and GCP are chasing the leader rapidly. 
+When it comes to functionality, cloud providers could cover all of the customers needs either via managed services (e.g. BigQuery, Amazon Redshift, S3, Cloud Pub/Sub) or compute services (e.g. Virtual Machines, Compute engine). While Amazon has the biggest number of internal services and market share, Azure and GCP are chasing the leader rapidly. 
 
 ![Cloud Services comparison - image source N-IX.com (2020)](img/comparison.jpg)
 
-Another important factor of choosing a cloud provider is the price. In this area GCP provides the lowest price for general purpose machines, while compute optimized machines are a little bit cheaper in AWS. Azure provides the best price for memory optimized machines. However, these cost could be optimized significantly by having an agreement with the cloud provider or implementing resource optimizations afterwards. 
+Another important factor in choosing a cloud provider is the price. In this area, GCP provides the lowest price for general purpose machines, while compute optimized machines are a little bit cheaper in AWS. Azure provides the best price for memory optimized machines. However, these costs could be optimized significantly by having an agreement with the cloud provider or implementing resource optimizations afterward. 
 
 ![Pricing comparison - image source cast.ai](img/pricing.PNG)
 
 Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles [@CloudRole]. Gartner predicts that through 2025, 99% of cloud security failures will be the customer's fault.
 
-Having all these things in mind, it is really hard to draw a conclusion which Cloud provider to choose. In the end of the day it depends on the specific business requirements, regulations and personal preference. For instance, it your architecture is heavily based on containers and microservices, GCP could be the best choice since it has the most complete container-based model. The biggest selling point of AWS is that AWS has the greatest Global reach while Azure has more experience in hybrid cloud offerings and Windows-based organization support.
+Having all these things in mind, it is really hard to draw a conclusion which Cloud provider to choose. At the end of the day, it depends on the specific business requirements, regulations, and personal preference. For instance, if the architecture is heavily based on containers and microservices, GCP could be the best choice since it has the most complete container-based model. The biggest selling point of AWS is that AWS has the greatest Global reach while Azure has more experience in hybrid cloud offerings and Windows-based organization support.
 
 
 ![Conclusion - image source www.varonis.com](img/varonis_comparison.png)
@@ -79,18 +79,18 @@ Having all these things in mind, it is really hard to draw a conclusion which Cl
 
 ## Migration to cloud approaches
 
-The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment [@CloudMigrationReview]. Automation is an important aspect of the migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomation].
+The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment [@CloudMigrationReview]. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomation].
 
 ![Cloud migration strategy - image source aws.amazon.com](img/migration_strat.png)
 
 
-According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budgets are allocated through multiple services. E.g. in 2018 on average they were spent accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS. 
+According to Forbes, there are now 77 % of organizations, having one or some parts of their systems in the cloud. The budget is usually allocated through multiple services. E.g. in 2018 on average, the distribution of the budget accordingly: 48% went to SaaS, 30% to IaaS, and 21% to PaaS. 
 
 
 
 ## Kubernetes in a nutshell
 
-While virtualized applications is highly preferred as oppose to IaaS approach (virtual machines), it makes sense to dig deeper in kubernetes and docker setup, regardless of the chosen managed service.
+While virtualized applications are highly preferred as opposed to IaaS approach (virtual machines), it makes sense to dig deeper in kubernetes and docker setup, regardless of the chosen managed service.
 
 ![Cloud Strategy - image source Flexera](img/conteiners.jpg)
 
@@ -104,21 +104,19 @@ Kubernetes is the most popular container orchestration platform that enables use
 
 ## Use Case (R Case)
 
-R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury in out of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps and APIs having a cloud provider selected.
+R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury of possessing of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps, and APIs having a cloud provider selected (GCP).
 
 ![R applications - image source ds4ps.org](img/R.png)
 
-Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking, to storage, to how you set up observability—in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption. 
+Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption. 
 
 ![Cloud Run - cloud.google.com](img/Cloud-Run.jpeg)
 
 
 
-There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should really aim for the simplicity not only for development flow, but the application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling portability of the workflows.
+There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling the portability of the workflows.
 
-![Cloud Run Process - image source https://medium.com/google-cloud](img/cloudrun.jpg)
-
-Let's take the Shiny app example. First we need to build an app and containerize it. [@shinydocker]
+Let's take the Shiny app example. First we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications [@shinydocker] [@shinydockerrun]. Once application is finished, Dokerfile is needed with all the dependencies included:
 
 ```bash
 FROM rocker/shiny-verse:latest
@@ -141,7 +139,9 @@ RUN ["chmod", "+x", "/usr/bin/shiny-server.sh"]
 CMD ["/usr/bin/shiny-server.sh"]
 ```
 
-Some of the shiny server nuances require to make sure that logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.
+Some of the shiny server nuances require to make sure that the logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process. 
+
+
 
 ```bash
 #!/bin/sh
@@ -149,6 +149,12 @@ mkdir -p /var/log/shiny-server
 chown shiny.shiny /var/log/shiny-server
 exec shiny-server >> /var/log/shiny-server.log 2>&1
 ```
+
+Once the docker image is built, all we need to do is to push that image to Google Container Registry.
+
+![Cloud Run Process - image source https://medium.com/google-cloud](img/cloudrun.jpg)
+
+It is easy to monitor and track deployments in Google Cloud Console interface. Moreover, deployments can be fully automated via terraform and additional monitoring measures could be made in order to ensure correct application behavior.
 
 ![Cloud Run Deployments](img/cloudrundeployments.PNG)
 
@@ -158,11 +164,8 @@ exec shiny-server >> /var/log/shiny-server.log 2>&1
 Application is already deployed and now can be reached via this URL https://shinydashboard-k6i6icomba-lz.a.run.app
 
 
-https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35
 
-https://code.markedmondson.me/r-on-kubernetes-serverless-shiny-r-apis-and-scheduled-scripts/
 
-https://www.linkedin.com/pulse/using-kubernetes-deploy-r-shiny-application-nosa-ugowe/
 
 # Part II (TBA)
 
