@@ -29,3 +29,13 @@ moving-to-cloud
 analytics-use-case
 use-case-r-case
 managing-sla-slo-requirements-on-clouds
+public-cloud-setup
+shiny-server-on-compute-engine
+ssl-for-security
+startup-script
+plan-saved-on-google-cloud-storage
+integration-with-git-flow-and-github-actions
+shiny-on-vm
+shiny-on-gke
+shiny-server-on-gke
+bonus---security-considerations
