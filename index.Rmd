@@ -3,6 +3,7 @@ title: "FMISD19004 Cloud Computing Technologies"
 author: "Kęstutis Daugėla"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 bibliography: references.bib
@@ -96,11 +97,11 @@ While virtualized applications are highly preferred as opposed to IaaS approach 
 
 Kubernetes was founded by Ville Aikas, Joe Beda, Brendan Burns, and Craig McLuckie in collaboration with Google engineers Brian Grant and Tim Hockin in mid-2014. Google's Borg system heavily influenced kubernetes design [@Borg] [@BorgKubernetes]. While the Borg project was implemented entirely in C++, Kubernetes was rewritten in Go language. The main goal of kubernetes was to build on the capabilities of containers and provide significant gains in programmer productivity while easing the management of the system. 
 
-![Container evolution - kubernetes.io](img/container_evolution.svg)
+![Container evolution - kubernetes.io](img/container_evolution.png)
 
 Kubernetes is the most popular container orchestration platform that enables users to create and run multiple containers in cloud environments. Kubernetes offers resource management to isolate the resource usage of containers on a host server because performance isolation is an important factor in terms of service quality.
 
-![The components of a Kubernetes cluster - kubernetes.io](img/components-of-kubernetes.svg)
+![The components of a Kubernetes cluster - kubernetes.io](img/components-of-kubernetes.png)
 
 ## Use Case (R Case)
 

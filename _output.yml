@@ -3,9 +3,13 @@ bookdown::gitbook:
   output:
     pdf_document
   config:
-    download: ["pdf", "epub", "mobi"]
+    download: ["pdf"]
     toc:
       before: |
         <li><a href="./">Cloud computing Technologies</a></li>
       after: |
         <li>Vilnius Tech 2021</li>
+bookdown::pdf_book:
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: no
