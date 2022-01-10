@@ -266,7 +266,7 @@ Terraform is an open source tool that lets you provision Google Cloud resources 
 
 https://cloud.google.com/architecture/managing-infrastructure-as-code
 
-## Use Case
+## Use Cases
 
 ### Shiny Server on Compute Engine
 
@@ -509,9 +509,23 @@ https://anderfernandez.com/en/blog/put-shiny-app-into-production/
 
 **Limitations**
 
-### Bonus - Security considerations
+### Bonus - Security Expriment
 
-IPs from unknown sources
+Computer  networks  are  prone to  attacks  and it  has wide  range  of attacks  associated  with  it. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based and Social Engineering attacks [@attacks].
+
+As an experiment, firewall was opened to the whole world and network activity was monitored for one week. While the activity in the Compute Instance (Shiny Server hosted on a Virtual Server) was marginal, the exposed Shiny Server instance on Google Kubernetes Cluster was scanned extensively. This could be due to the rules how Google generate IP addresses for corresponsing instances. Moreover, GKE was exposed on port 80 which is a standard HTTP port, while standard port of shiny server (3838) was used for Compute Instance, which is not that common configuration.
+
+![Incoming Requests](img/incoming_requests.png)
+
+While the majority of the requests came from USA, applications from China and Russia also scanned our exposed application considerably. These scans also are not centralized, but rather done by individuals or companies which specializes in data mining and web crawling. Some requests are also received from Lithuania, CGates Internet Service Provider. 
+
+![Incoming Requets from different cities](img/all_cities.png)
+
+Some of the IPs were crossed check with a publicly available IP database. These IP addresses, especially from China and Russia, were already reported a number of times and are indicated as abusive. 
+
+![Blacklisted IPs - source https://www.abuseipdb.com/](img/abuse_ip.PNG)
+
+The analysis proves that incorrectly configured firewall poses one of the most significant security risk. Misconfigured applications could serve as a back door and is a low handing fruit for hackers - e.g. it is easy to run a port scan for a specific IP range and use a collection of scripts/exploits to check whether there are any holes in the application. If any sensitive data where General Data Protection Regulation is not applied (i.e. USA, China, Russia).
 
 # References {-}
 
