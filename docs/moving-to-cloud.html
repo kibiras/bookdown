@@ -24,7 +24,7 @@
 <meta name="author" content="Kęstutis Daugėla" />
 
 
-<meta name="date" content="2022-01-09" />
+<meta name="date" content="2022-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,20 +139,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html"><i class="fa fa-check"></i><b>1</b> Moving to Cloud</a><ul>
-<li class="chapter" data-level="1.1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#managing-sla-slo-requirements-on-clouds"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements on clouds</a></li>
-<li class="chapter" data-level="1.2" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#migration-to-cloud-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration to cloud approaches</a></li>
+<li class="chapter" data-level="1.1" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#managing-sla-slo-requirements"><i class="fa fa-check"></i><b>1.1</b> Managing SLA (SLO) requirements</a></li>
+<li class="chapter" data-level="1.2" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#migration-approaches"><i class="fa fa-check"></i><b>1.2</b> Migration Approaches</a></li>
 <li class="chapter" data-level="1.3" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#kubernetes-in-a-nutshell"><i class="fa fa-check"></i><b>1.3</b> Kubernetes in a nutshell</a></li>
-<li class="chapter" data-level="1.4" data-path="moving-to-cloud.html"><a href="moving-to-cloud.html#use-case-r-case"><i class="fa fa-check"></i><b>1.4</b> Use Case (R Case)</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html"><i class="fa fa-check"></i><b>2</b> Public Cloud Setup</a><ul>
 <li class="chapter" data-level="2.1" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#security"><i class="fa fa-check"></i><b>2.1</b> Security</a></li>
-<li class="chapter" data-level="2.2" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#networking"><i class="fa fa-check"></i><b>2.2</b> Networking</a></li>
-<li class="chapter" data-level="2.3" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#infrastructure-as-code"><i class="fa fa-check"></i><b>2.3</b> Infrastructure as Code</a></li>
-<li class="chapter" data-level="2.4" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#use-cases"><i class="fa fa-check"></i><b>2.4</b> Use Cases</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#shiny-server-on-compute-engine"><i class="fa fa-check"></i><b>2.4.1</b> Shiny Server on Compute Engine</a></li>
-<li class="chapter" data-level="2.4.2" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#shiny-server-on-gke"><i class="fa fa-check"></i><b>2.4.2</b> Shiny Server on GKE</a></li>
-<li class="chapter" data-level="2.4.3" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#bonus---security-expriment"><i class="fa fa-check"></i><b>2.4.3</b> Bonus - Security Expriment</a></li>
+<li class="chapter" data-level="2.2" data-path="public-cloud-setup.html"><a href="public-cloud-setup.html#infrastructure-as-code"><i class="fa fa-check"></i><b>2.2</b> Infrastructure as Code</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>3</b> Use Cases</a><ul>
+<li class="chapter" data-level="3.1" data-path="use-cases.html"><a href="use-cases.html#shiny-server-on-cloud-run"><i class="fa fa-check"></i><b>3.1</b> Shiny Server on Cloud Run</a></li>
+<li class="chapter" data-level="3.2" data-path="use-cases.html"><a href="use-cases.html#shiny-server-on-gke"><i class="fa fa-check"></i><b>3.2</b> Shiny Server on GKE</a></li>
+<li class="chapter" data-level="3.3" data-path="use-cases.html"><a href="use-cases.html#shiny-server-on-gce"><i class="fa fa-check"></i><b>3.3</b> Shiny Server on GCE</a></li>
+<li class="chapter" data-level="3.4" data-path="use-cases.html"><a href="use-cases.html#limitations"><i class="fa fa-check"></i><b>3.4</b> Limitations</a></li>
+<li class="chapter" data-level="3.5" data-path="use-cases.html"><a href="use-cases.html#security-experiment"><i class="fa fa-check"></i><b>3.5</b> Security Experiment</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -177,8 +177,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="moving-to-cloud" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Moving to Cloud</h1>
-<div id="managing-sla-slo-requirements-on-clouds" class="section level2">
-<h2><span class="header-section-number">1.1</span> Managing SLA (SLO) requirements on clouds</h2>
+<div id="managing-sla-slo-requirements" class="section level2">
+<h2><span class="header-section-number">1.1</span> Managing SLA (SLO) requirements</h2>
 <p>One of the biggest challenges for potential cloud customers is to evaluate SLA’s of cloud vendors <span class="citation">(Odun-Ayo, Ajayi, and Omoregbe <a href="#ref-CloudSLA" role="doc-biblioref">2017</a>)</span> <span class="citation">(Aljoumah et al. <a href="#ref-CloudSLAComprehensive" role="doc-biblioref">2015</a>)</span>. There are four major cloud setups in general:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Public cloud</strong>. In this setup, users can access the resource pool that is managed by a cloud provider. Since this is a public cloud environment, it can pose important security concerns and extra measures need to be taken in order to prevent security issues.</li>
@@ -212,9 +212,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Conclusion - image source www.varonis.com</p>
 </div>
 </div>
-<div id="migration-to-cloud-approaches" class="section level2">
-<h2><span class="header-section-number">1.2</span> Migration to cloud approaches</h2>
-<p>The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum <span class="citation">(Orban <a href="#ref-awsmigration" role="doc-biblioref">2016</a>)</span>. Cloud computing advocates that resources should be controlled on demand, and can be flexibly and elastically expanded and contracted according to the change of demand <span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span>. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment <span class="citation">(Iqbal and Colomo-Palacios <a href="#ref-CloudMigrationReview" role="doc-biblioref">2019</a>)</span>. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications <span class="citation">(Jayachandran, Pawar, and Venkataraman <a href="#ref-cloudautomation" role="doc-biblioref">2017</a>)</span>.</p>
+<div id="migration-approaches" class="section level2">
+<h2><span class="header-section-number">1.2</span> Migration Approaches</h2>
+<p>The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum <span class="citation">(Orban <a href="#ref-awsmigration" role="doc-biblioref">2016</a>)</span>. Cloud computing advocates that resources should be controlled on demand, and can be flexibly and elastically expanded and contracted according to the change of demand <span class="citation">(Wang, Yan, and Wang <a href="#ref-CloudMigration" role="doc-biblioref">2020</a>)</span>. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment <span class="citation">(Iqbal and Colomo-Palacios <a href="#ref-CloudMigrationReview" role="doc-biblioref">2019</a>)</span>. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications <span class="citation">(Jayachandran, Pawar, and Venkataraman <a href="#ref-cloudautomationreview" role="doc-biblioref">2017</a>)</span>.</p>
 <div class="figure">
 <img src="img/migration_strat.png" alt="" />
 <p class="caption">Cloud migration strategy - image source aws.amazon.com</p>
@@ -239,59 +239,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">The components of a Kubernetes cluster - kubernetes.io</p>
 </div>
 </div>
-<div id="use-case-r-case" class="section level2">
-<h2><span class="header-section-number">1.4</span> Use Case (R Case)</h2>
-<p>R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury of possessing of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps, and APIs having a cloud provider selected (GCP).</p>
-<div class="figure">
-<img src="img/R.png" alt="" />
-<p class="caption">R applications - image source ds4ps.org</p>
-</div>
-<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
-<div class="figure">
-<img src="img/Cloud-Run.jpeg" alt="" />
-<p class="caption">Cloud Run - cloud.google.com</p>
-</div>
-<p>There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling the portability of the workflows.</p>
-<p>Let’s take the Shiny app example. First we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span> <span class="citation">(Christensen <a href="#ref-shinydockerrun" role="doc-biblioref">2021</a>)</span>. Once application is finished, Dokerfile is needed with all the dependencies included:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="moving-to-cloud.html#cb1-1"></a><span class="ex">FROM</span> rocker/shiny-verse:latest</span>
-<span id="cb1-2"><a href="moving-to-cloud.html#cb1-2"></a><span class="ex">RUN</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install -y \</span>
-<span id="cb1-3"><a href="moving-to-cloud.html#cb1-3"></a>    sudo \</span>
-<span id="cb1-4"><a href="moving-to-cloud.html#cb1-4"></a>    pandoc \</span>
-<span id="cb1-5"><a href="moving-to-cloud.html#cb1-5"></a>    pandoc-citeproc \</span>
-<span id="cb1-6"><a href="moving-to-cloud.html#cb1-6"></a>    libcurl4-gnutls-dev \</span>
-<span id="cb1-7"><a href="moving-to-cloud.html#cb1-7"></a>    libcairo2-dev \</span>
-<span id="cb1-8"><a href="moving-to-cloud.html#cb1-8"></a>    libxt-dev \</span>
-<span id="cb1-9"><a href="moving-to-cloud.html#cb1-9"></a>    libssl-dev \</span>
-<span id="cb1-10"><a href="moving-to-cloud.html#cb1-10"></a>    libssh2-1-dev</span>
-<span id="cb1-11"><a href="moving-to-cloud.html#cb1-11"></a><span class="ex">RUN</span> R -e <span class="st">&quot;install.packages(&#39;shinydashboard&#39;, repos=&#39;http://cran.rstudio.com/&#39;)&quot;</span></span>
-<span id="cb1-12"><a href="moving-to-cloud.html#cb1-12"></a><span class="ex">COPY</span> shiny-server.conf  /etc/shiny-server/shiny-server.conf</span>
-<span id="cb1-13"><a href="moving-to-cloud.html#cb1-13"></a><span class="ex">COPY</span> /app /srv/shiny-server/</span>
-<span id="cb1-14"><a href="moving-to-cloud.html#cb1-14"></a><span class="ex">RUN</span> rm /srv/shiny-server/index.html</span>
-<span id="cb1-15"><a href="moving-to-cloud.html#cb1-15"></a><span class="ex">EXPOSE</span> 80</span>
-<span id="cb1-16"><a href="moving-to-cloud.html#cb1-16"></a><span class="ex">COPY</span> shiny-server.sh /usr/bin/shiny-server.sh</span>
-<span id="cb1-17"><a href="moving-to-cloud.html#cb1-17"></a><span class="ex">RUN</span> [<span class="st">&quot;chmod&quot;</span>, <span class="st">&quot;+x&quot;</span>, <span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span>
-<span id="cb1-18"><a href="moving-to-cloud.html#cb1-18"></a><span class="ex">CMD</span> [<span class="st">&quot;/usr/bin/shiny-server.sh&quot;</span>]</span></code></pre></div>
-<p>Some of the shiny server nuances require to make sure that the logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="moving-to-cloud.html#cb2-1"></a><span class="co">#!/bin/sh</span></span>
-<span id="cb2-2"><a href="moving-to-cloud.html#cb2-2"></a><span class="fu">mkdir</span> -p /var/log/shiny-server</span>
-<span id="cb2-3"><a href="moving-to-cloud.html#cb2-3"></a><span class="fu">chown</span> shiny.shiny /var/log/shiny-server</span>
-<span id="cb2-4"><a href="moving-to-cloud.html#cb2-4"></a><span class="bu">exec</span> shiny-server <span class="op">&gt;&gt;</span> /var/log/shiny-server.log <span class="op">2&gt;&amp;1</span></span></code></pre></div>
-<p>Once the docker image is built, all we need to do is to push that image to Google Container Registry.</p>
-<div class="figure">
-<img src="img/cloudrun.jpg" alt="" />
-<p class="caption">Cloud Run Process - image source <a href="https://medium.com/google-cloud" class="uri">https://medium.com/google-cloud</a></p>
-</div>
-<p>It is easy to monitor and track deployments in Google Cloud Console interface. Moreover, deployments can be fully automated via terraform and additional monitoring measures could be made in order to ensure correct application behavior.</p>
-<div class="figure">
-<img src="img/cloudrundeployments.PNG" alt="" />
-<p class="caption">Cloud Run Deployments</p>
-</div>
-<div class="figure">
-<img src="img/cloudrunmetrics.PNG" alt="" />
-<p class="caption">Cloud Run Metrics</p>
-</div>
-<p>Application is already deployed and now can be reached via this URL <a href="https://shinydashboard-k6i6icomba-lz.a.run.app" class="uri">https://shinydashboard-k6i6icomba-lz.a.run.app</a></p>
-</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -304,13 +251,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-BorgKubernetes">
 <p>Burns, Brendan, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes. 2016. “Borg, Omega, and Kubernetes.” <em>ACM Queue</em> 14: 70–93. <a href="http://queue.acm.org/detail.cfm?id=2898444">http://queue.acm.org/detail.cfm?id=2898444</a>.</p>
 </div>
-<div id="ref-shinydockerrun">
-<p>Christensen, Peer. 2021. “Dockerizing and Deploying a Shiny Dashboard on Google Cloud,” April. <a href="https://towardsdatascience.com/dockerizing-and-deploying-a-shiny-dashboard-on-google-cloud-a990ceb3c33a">https://towardsdatascience.com/dockerizing-and-deploying-a-shiny-dashboard-on-google-cloud-a990ceb3c33a</a>.</p>
-</div>
 <div id="ref-CloudMigrationReview">
 <p>Iqbal, Arif, and Ricardo Colomo-Palacios. 2019. “Key Opportunities and Challenges of Data Migration in Cloud: Results from a Multivocal Literature Review.” <em>Procedia Computer Science</em> 164: 48–55. <a href="https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153">https://doi.org/https://doi.org/10.1016/j.procs.2019.12.153</a>.</p>
 </div>
-<div id="ref-cloudautomation">
+<div id="ref-cloudautomationreview">
 <p>Jayachandran, Prassanna, Anjali Pawar, and Neelanarayanan Venkataraman. 2017. “A Review of Existing Cloud Automation Tools.” <em>Asian Journal of Pharmaceutical and Clinical Research</em> 10 (July): 471. <a href="https://doi.org/10.22159/ajpcr.2017.v10s1.20519">https://doi.org/10.22159/ajpcr.2017.v10s1.20519</a>.</p>
 </div>
 <div id="ref-CloudSLA">
@@ -324,9 +268,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-CloudMigration">
 <p>Wang, Zhixiao, Wenyao Yan, and Wendong Wang. 2020. “Revisiting Cloud Migration: Strategies and Methods.” <em>Journal of Physics: Conference Series</em> 1575 (June): 012232. <a href="https://doi.org/10.1088/1742-6596/1575/1/012232">https://doi.org/10.1088/1742-6596/1575/1/012232</a>.</p>
-</div>
-<div id="ref-shinydocker">
-<p>Xu, Mingchu. 2020. “An Open-Source Solution to Deploy Enterprise-Level R Shiny Applications,” July. <a href="https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35">https://towardsdatascience.com/an-open-source-solution-to-deploy-enterprise-level-r-shiny-applications-2e19d950ff35</a>.</p>
 </div>
 </div>
             </section>

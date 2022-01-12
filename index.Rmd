@@ -42,9 +42,7 @@ In terms of the leading cloud service providers, the same three names usually ap
 
 # Moving to Cloud
 
-
-
-## Managing SLA (SLO) requirements on clouds
+## Managing SLA (SLO) requirements
 
 One of the biggest challenges for potential cloud customers is to evaluate SLA’s of cloud vendors [@CloudSLA] [@CloudSLAComprehensive]. There are four major cloud setups in general:
 
@@ -76,11 +74,9 @@ Having all these things in mind, it is really hard to draw a conclusion which Cl
 ![Conclusion - image source www.varonis.com](img/varonis_comparison.png)
 
 
+## Migration Approaches
 
-
-## Migration to cloud approaches
-
-The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment [@CloudMigrationReview]. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomation].
+The complexity of migrating existing applications varies, depending on the architecture and existing licensing arrangements. A virtualized, service-oriented architecture can be put on the low-complexity end of the spectrum, and a monolithic mainframe at the high-complexity end of the spectrum [@awsmigration]. Cloud  computing  advocates  that  resources  should  be  controlled  on  demand,  and  can  be flexibly and  elastically expanded  and contracted  according to  the change of demand [@CloudMigration]. Therefore it is preferred that applications moving into the cloud must run in a virtualized way, while virtual machines could work as a direct entry for other applications which cannot run directly in the cloud environment [@CloudMigrationReview]. Automation is an important aspect of migration - while aiming for full automation could seem an overwhelming task, this will significantly reduce the time spent in the future and the challenge of managing these applications [@cloudautomationreview].
 
 ![Cloud migration strategy - image source aws.amazon.com](img/migration_strat.png)
 
@@ -103,7 +99,62 @@ Kubernetes is the most popular container orchestration platform that enables use
 
 ![The components of a Kubernetes cluster - kubernetes.io](img/components-of-kubernetes.png)
 
-## Use Case (R Case)
+
+# Public Cloud Setup
+
+## Security
+
+Cloud security is a critical matter. Most companies worry that highly sensitive data and intellectual property may be exposed through accidental leaks or due to increasingly sophisticated cyber attacks. Gartner predicts that through 2025, 99% of cloud security failures will be the customer's fault.
+
+Moreover, having a solid cloud security stance helps organizations achieve other benefits, such as:
+
+* Lower costs
+* Reduced ongoing operational and administrative expenses
+* Scalability
+* Increased reliability and availability
+* DevOps way of working
+
+
+Despite bringing many benefits, the cloud computing paradigm imposes serious concerns in terms of security and privacy, which are considered hurdles in the adoption of the cloud at a very large scale [@securingcloudsurvey]. Security issues are depended on the cloud provider, service user, instance [@datasecurity] and the delivery model, PaaS, IaaS, and SaaS [@securitymode]. Data stored in public cloud would face both outside attacks and inside attacks [@securityprivacy].  Data loss and leakage were as the biggest security concern, with 44% of organizations seeing data loss as one of their top three focus areas. Two-thirds of organizations leave back doors open to attackers leading to an accidental exposure through misconfiguration. Security gaps in misconfigurations were exploited in 66% of attacks [@sophos]. 
+
+![How criminals are getting in, source - sophos.com](img/sophos_threats.PNG)
+
+
+Zero Trust security model enables securing cloud native applications by encrypting all network communication, authenticating, and authorizing every request. The traditional trust management mechanisms represent a static trust relationship which falls deficit while meeting up the dynamic requirement of cloud services. [@zerotrust]. In order to to achieve a true zero-trust security model in the cloud, a combination of network and identity permission policies should be in place.
+
+![The Zero Trust eXtended (ZTX) Ecosystem, Forrester Research, Inc., source - juniper.net](img/zerotrusteco.PNG)
+
+To adequately address the modern dynamic threat environment requires[@NSA]:
+
+* Coordinated and aggressive system monitoring, system management, and defensive operations capabilities.
+* Assuming all requests for critical resources and all network traffic may be malicious.
+* Assuming all devices and infrastructure may be compromised.
+* Accepting that all access approvals to critical resources incur risk
+
+Some security recommendations for network security can be summarized as follows [@securingcloudsurvey]:
+* Secure communication techniques should be adopted: HTTPS for web applications, transmission channel must be encrypted by TLS
+* Additional monitoring should be done (manual, automatic, ML based)
+* Other public security services such as web application firewalls (WAF), virtual firewalls, virtual bastion machines, virtual host protection and virtual database audit systems could be used
+
+
+## Infrastructure as Code 
+
+There was a significant shift in development, deployment and software application management during the past decade. The new approach is called Development Operations (DevOps) where Infrastructure as Code (IaC) plays a core role. While manual configurations in Cloud context was a norm, nowadays it is fully automated using blueprints that are easily interpretable by machines. Moreover, IaC approach allows a faster and homogeneous configuration for the whole infrastructure. Usually, it is utilized by a specific declarative languages (TerraForm, CloudFormation, Puppet) that allows users to describe the desired state of the infrastructure. This significantly reduces the time, complexity and helps to provision the infrastructure from the security, management and costs perspectives. 
+
+
+The whole idea behind IaC is simple - developers can write declarative statements that define the infrastructure necessary to run the code as oppose to writing a ticket/creating a task for administrators. Reproducibility and transparency comes as a side effect. 
+
+![Infrastructure as Code Survey, source - thenewstack.io](img/iac.png)
+
+Terraform is one of the most popular way to implement this pipeline, especially in a Cloud context. It is an is an open source tool that lets you provision Google Cloud resources with declarative configuration files—resources such as virtual machines, containers, storage, and networking. It lets uers manage Terraform configuration files in source control to maintain an ideal provisioning state for testing, production and other environments. [@iac]
+
+
+![Terraform example, source - cloud.google.com](img/iac_example.PNG)
+
+
+# Use Cases
+
+## Shiny Server on Cloud Run
 
 R is a programming language and free software environment for statistical computing and graphics. It is widely used among statisticians and data miners for developing statistical software and data analysis. R is usually used internally, mostly for interactive analysis and statistical modeling, but recently there are more and more applications in terms of WEB applications and APIs. While R is not the most popular language, it has no luxury of possessing of the box serving platform in most of the cloud providers. However, it can be nicely integrated with docker having all the dependencies in place and encapsulated application in a single container. This practice greatly speeds up the workflow of software development and deployment. In this proof of concept we will suggest the best approach of migrating R applications, shiny apps, and APIs having a cloud provider selected (GCP).
 
@@ -140,137 +191,109 @@ RUN ["chmod", "+x", "/usr/bin/shiny-server.sh"]
 CMD ["/usr/bin/shiny-server.sh"]
 ```
 
-Some of the shiny server nuances require to make sure that the logs directory will be created with relevant permissions. Therefore we are going to execute a simple bash script during the container building process. 
-
-
-
-```bash
-#!/bin/sh
-mkdir -p /var/log/shiny-server
-chown shiny.shiny /var/log/shiny-server
-exec shiny-server >> /var/log/shiny-server.log 2>&1
-```
-
 Once the docker image is built, all we need to do is to push that image to Google Container Registry.
 
 ![Cloud Run Process - image source https://medium.com/google-cloud](img/cloudrun.jpg)
 
-It is easy to monitor and track deployments in Google Cloud Console interface. Moreover, deployments can be fully automated via terraform and additional monitoring measures could be made in order to ensure correct application behavior.
+From there, we can deploy the docker image manually or use other tools such as Terraform to create infrastructure as code. Since deployment on Google Cloud Run is quite simple, Terraform script is not complex. Terraform script source - [github](https://github.com/paeselhz/shiny_gcr_tf).
+
+
+```terraform
+provider "google"{
+ project     = "vgtu-cloud"
+ region      = "europe-west1"
+}
+
+resource "google_project_service" "run" {
+  service = "run.googleapis.com"
+}
+
+resource "google_cloud_run_service" "shiny-gcr-tf" {
+  name = "shiny-gcr-tf"
+  location = "europe-west1"
+  template {
+    spec {
+      containers {
+        image = "gcr.io/vgtu-cloud/mydashboard@sha256:3b1d046e01694a681664b350c62fa0b55e69bdd8e4f068642dee8804222b8d00"
+        resources {
+          limits = {
+            cpu = "1000m"
+            memory = "1024Mi"
+          }
+        }
+        ports {
+          container_port = 80
+        }
+      }
+
+      container_concurrency = 80
+      timeout_seconds = 300
+    }
+    metadata {
+      annotations = {
+        "autoscaling.knative.dev/minScale" = 0
+        "autoscaling.knative.dev/maxScale" = 1
+      }
+    }
+  }
+
+  traffic {
+    percent = 100
+    latest_revision = true
+  }
+
+  depends_on = [google_project_service.run]
+}
+
+resource "google_cloud_run_service_iam_member" "allUsers" {
+  service  = google_cloud_run_service.shiny-gcr-tf.name
+  location = google_cloud_run_service.shiny-gcr-tf.location
+  role     = "roles/run.invoker"
+  member   = "allUsers"
+}
+```
+
+Terraform script is initiated by the command line, but could be later reused in any CI/CD pipeline. 
+
+```bash
+terraform init
+terraform plan
+terraform apply 
+```
+
+It is easy to monitor and track deployments in Google Cloud Console interface. Metrics are tracked separately as well. 
 
 ![Cloud Run Deployments](img/cloudrundeployments.PNG)
 
-
 ![Cloud Run Metrics](img/cloudrunmetrics.PNG)
 
-Application is already deployed and now can be reached via this URL https://shinydashboard-k6i6icomba-lz.a.run.app
+It is important to note that Cloud Run is the cheapest and the most convenient option for Shiny R Application deployment. Minimum instances could be set to 0 to make this application offline when it is not in use. Moreover, SSL certificates are applied automatically and are handled by GCP. Application could be reached publicly using this URL: [https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/](https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/)
+
+![Cloud Run Metrics](img/shiny-gcr.gif)
 
 
-# Public Cloud Setup
+## Shiny Server on GKE
 
-## Security   
+Google Kubernetes Engine is a straightforward way of setting up a Kubernetes Cluster. These clusters are fully managed by Google Site Reliability Engineers and Google ensures that your cluster is available and up-to-date. It also supports the common Docker container format and runs on Container-Optimized OS.
 
-Taking the functional requirements aside, security requirements represent a major issue that has to be met in order of easing some of these obstacles [@CloudRole]. Gartner predicts that through 2025, 99% of cloud security failures will be the customer's fault.
+Once the Cluster is created, the deployment is similar to Cloud Run. It can be done via Google Cloud Console, GCP SDK or integrated in any CI/CD pipeline using Jenkins, GitActions or similar tools. 
 
+![Shiny on GKE](img/gke-autoscalling.PNG)
 
-Despite bringing many benefits, the cloud computing paradigm imposes serious
-concerns in terms of security and privacy, which are considered hurdles in the adoption of
-the cloud at a very large scale. Customers and organizations in the cloud should be aware of
-threats, attacks and vulnerabilities, as security awareness is considered the first step to ease
-the adoption of the cloud
+This is an example of the same application deployed on GKE.
 
-https://www.mdpi.com/2076-3417/11/19/9005/pdf
+![Shiny app in action](img/shiny-gke.gif)
 
-Various researches have been done on privacy and security in CC. Arjun et al in paper
-[3] stated that security issues are based on the cloud provider, service user, and instance. Another
-researcher in paper [4] argued that security issues are based on the delivery model, PaaS, IaaS, and SaaS.
-
-https://iopscience.iop.org/article/10.1088/1742-6596/1979/1/012038/pdf
+![GCP Load Balancer](img/gke-lb.jpg)
 
 
-As in cloud computing, oceans of data will be stored. Data stored in public cloud would face both outside attacks and inside attacks since public cloud provider themselves are untrusted.
+In order to expose Shiny Application to the internal or external network, it is needed to forward the traffic from the GKE cluster. This could be achived via GCP Load balancer. Since Shiny Server is a stateful application, session affinity is also needed in case there are more than one active pods which is also reffered as sticky sessions. 
 
-https://ieeexplore.ieee.org/document/8622531
+## Shiny Server on GCE
 
-A. Validation of OTP B. Integrity Checking C. Access Control D. Secure Deletion E. Encryption F. Data Masking G. Intrusion Detection System
+Google Compute Instance was selected as the third example and perfectly encapsulates Insfrastructure as a Service use case. There we need to prepare everything from scratch - use a fresh VM image of OS we want to use, install all the dependencies and applications we want to use. Later this virtual machine could serve as a centralized place to serve multiple Shiny R Applications. 
 
-https://www.ijrte.org/wp-content/uploads/papers/v8i1s4/A10030681S419.pdf
-
-
-Almost three-quarters of organizations hosting data or workloads in the public cloud
-experienced a security incident in the last year. Seventy percent of organizations
-reported they were hit by malware, ransomware, data theft, account compromise
-attempts, or cryptojacking in the last year.
-Ì Data loss/leakage is the number one concern for organizations. Data loss and leakage
-topped our list as the biggest security concern, with 44% of organizations seeing data
-loss as one of their top three focus areas.
-Ì Ninety-six percent of organizations are concerned about their current level of cloud
-security. Data loss, detection and response, and multi-cloud management top the list of
-the biggest concerns among organizations.
-Ì Multi-cloud organizations reported more security incidents in the last 12 months.
-Seventy-three percent of the organizations surveyed were using two or more public
-cloud providers and reported more security incidents as those using a single platform.
-Ì European organizations may have the General Data Protection Regulation (GDPR)
-to thank for the lowest attack rates of all regions. The GDPR guidelines’ focus on data
-protection, and well-publicized ransomware attacks have likely led to these lucrative
-targets becoming harder for cybercriminals to compromise in Europe.
-Ì Only one in four organizations see lack of staff expertise as a top concern despite the
-number of cyberattacks reported in the survey. When it comes to hardening security
-postures in the cloud, the skills needed to create good designs, develop clear use cases,
-and leverage third-party services for platform tools are crucial but underappreciated.
-Ì Two-thirds of organizations leave back doors open to attackers. Accidental exposure
-through misconfigurations continues to plague organizations. Security gaps in
-misconfigurations were exploited in 66% of attacks (either through attackers exploiting
-a flaw in the web application firewall to access account credentials or attackers taking
-advantage of a misconfigured resource), while 33% of attacks used stolen credentials to
-get into cloud provider accounts
-
-
-
-https://secure2.sophos.com/en-us/medialibrary/Gated-Assets/white-papers/sophos-the-state-of-cloud-security-2020-wp.pdf
-
-Zero trust
-https://www.researchgate.net/publication/341806714_Establishing_a_Zero_Trust_Strategy_in_Cloud_Computing_Environment
-
-https://www.juniper.net/content/dam/www/assets/white-papers/us/en/security/the-rise-of-zero-trust.pdf
-
-https://media.defense.gov/2021/Feb/25/2002588479/-1/-1/0/CSI_EMBRACING_ZT_SECURITY_MODEL_UOO115131-21.PDF
-
-## Networking
-
-https://secure2.sophos.com/en-us/medialibrary/Gated-Assets/white-papers/sophos-the-state-of-cloud-security-2020-wp.pdf
-
-For example, a misconfigured route table on an organization’s firewall leaves the window
-open. Virtual machines running private server workloads or hosting sensitive data suddenly
-become accessible from the internet.
-
-The impact of configurations on data security Organizations had databases
-open to the Interne
-
-Some security recommendations for network security can be summarized as follows:
-• The internal communication of the cloud must adopt secure communication techniques such as HTTPS, and also the transmission channel must be encrypted by TLS.
-• Using anomaly detection solutions for HTTP requests that can effectively prevent any
-malicious network intrusion behaviors.
-• The cloud can use public security services such as web application firewalls (WAF),
-virtual firewalls, virtual bastion machines, virtual host protection and virtual database
-audit systems
-
-https://www.researchgate.net/publication/341806714_Establishing_a_Zero_Trust_Strategy_in_Cloud_Computing_Environment
-
-
-https://cloud.google.com/kubernetes-engine/docs/concepts/network-overview
-
-## Infrastructure as Code 
-
-Terraform is an open source tool that lets you provision Google Cloud resources with declarative configuration files—resources such as virtual machines, containers, storage, and networking. Terraform's infrastructure-as-code (IaC) approach supports DevOps best practices for change management, letting you manage Terraform configuration files in source control to maintain an ideal provisioning state for testing and production environments.
-
-
-https://cloud.google.com/architecture/managing-infrastructure-as-code
-
-## Use Cases
-
-### Shiny Server on Compute Engine
-
-main.tf:
+The main.tf consists of region selection, virtual machine configuration (resources, OS, installed packages) and network (firewall) configuration:
 
 ```terraform
 provider "google" {
@@ -318,12 +341,7 @@ resource "google_compute_firewall" "default" {
 }
 ```
 
-```bash
-terraform init
-terraform plan
-terraform apply 
-```
-
+After the initiation, terraform generates a plan for the infrastructe. Once this plan is revised, it can be applied and resources will be created. 
 
 ```
 Terraform used the selected providers to generate the following execution
@@ -447,69 +465,22 @@ Terraform will perform the following actions:
 Plan: 3 to add, 0 to change, 0 to destroy.
 ```
 
+After the terraform apply, virtual machine is created in Google Compute Instance having all the libraries installed and network configuration applied.
 
 ![CE instance](img/ce-shiny-server-instance.png)
-Shiny server is reachable for everyone. More granular firewall rules could be applied for not exposing it to the whole internet. Additional authentication and https protocol could be added if needed. 
+
+Shiny server is reachable for everyone. More granular firewall rules could be applied for not exposing it to the whole internet. Additional authentication and https protocol could be applied if needed (since Shiny Server Open Source version does not support HTTPS by default, this could be handled via other tools, such as Apache Server, Nginx or Google Load Balancer service). 
 
 ![Shiny Server is Alive](img/ce-shiny-server.gif)
 
-Improvements could be made:
+## Limitations
 
-**SSL for security**
+* VM image templates with preinstalled software can be used for faster deployments/replication
+* Integration with git flow and Github actions - branches, depended on the environments, terraform state saved in GCS buckets
+* More granularity in terraform scripts - modules for infrastructure, network, variables, outputs, etc.
+* VPC peering could be used as an alternative to public IPs - it allows internal IP address connectivity across two Virtual Private Cloud (VPC) networks regardless of whether they belong to the same project or the same organization. Service owners do not need to have their services exposed to the public Internet and deal with its associated risks.
 
-Load balancer
-
-**VM images**
-
-VM images with preinstalled software for easier replication.
-
-
-**Integration with git flow and Github actions**
-
-* Variables
-* Environments and branches
-* jenkins, git actions
-* plan stored in GCS bucker
-
-
-**VPC peering** 
-
-Google Cloud VPC Network Peering allows internal IP address connectivity across two Virtual Private Cloud (VPC) networks regardless of whether they belong to the same project or the same organization.
-
-VPC Network Peering enables you to connect VPC networks so that workloads in different VPC networks can communicate internally. Traffic stays within Google's network and doesn't traverse the public internet.
-
-VPC Network Peering gives you several advantages over using external IP addresses or VPNs to connect networks, including:
-
-Network Latency: Connectivity that uses only internal addresses provides lower latency than connectivity that uses external addresses.
-Network Security: Service owners do not need to have their services exposed to the public Internet and deal with its associated risks.
-Network Cost: Google Cloud charges egress bandwidth pricing for networks using external IPs to communicate even if the traffic is within the same zone. If however, the networks are peered they can use internal IPs to communicate and save on those egress costs. Regular network pricing still applies to all traffic.
-
-**Service account and zero trust**
-
-Least amount of privileges
-
-
-### Shiny Server on GKE
-
-
-![Shiny on GKE](img/gke-autoscalling.PNG)
-
-
-![Shiny app in action](img/shiny-gke.gif)
-
-
-https://anderfernandez.com/en/blog/put-shiny-app-into-production/
-
-![GCP Load Balancer](img/gke-lb.jpg)
-
-
-**Load balancer - single point of entry**
-
-**Rolling updates**
-
-**Limitations**
-
-### Bonus - Security Expriment
+## Security Experiment
 
 Computer  networks  are  prone to  attacks  and it  has wide  range  of attacks  associated  with  it. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based and Social Engineering attacks [@attacks].
 
