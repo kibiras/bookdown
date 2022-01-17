@@ -115,12 +115,12 @@ Moreover, having a solid cloud security stance helps organizations achieve other
 * DevOps way of working
 
 
-Despite bringing many benefits, the cloud computing paradigm imposes serious concerns in terms of security and privacy, which are considered hurdles in the adoption of the cloud at a very large scale [@securingcloudsurvey]. Security issues are depended on the cloud provider, service user, instance [@datasecurity] and the delivery model, PaaS, IaaS, and SaaS [@securitymode]. Data stored in public cloud would face both outside attacks and inside attacks [@securityprivacy].  Data loss and leakage were as the biggest security concern, with 44% of organizations seeing data loss as one of their top three focus areas. Two-thirds of organizations leave back doors open to attackers leading to an accidental exposure through misconfiguration. Security gaps in misconfigurations were exploited in 66% of attacks [@sophos]. 
+Despite bringing many benefits, the cloud computing paradigm imposes serious concerns in terms of security and privacy, which are considered hurdles in the adoption of the cloud at a very large scale [@securingcloudsurvey]. Security issues are depended on the cloud provider, service user, instance [@datasecurity], and the delivery model, PaaS, IaaS, and SaaS [@securitymode]. Data stored in the public cloud would face both outside attacks and inside attacks [@securityprivacy].  Data loss and leakage were the biggest security concern, with 44% of organizations seeing data loss as one of their top three focus areas. Two-thirds of organizations leave back doors open to attackers leading to an accidental exposure through misconfiguration. Security gaps in misconfigurations were exploited in 66% of attacks [@sophos]. 
 
 ![How criminals are getting in, source - sophos.com](img/sophos_threats.PNG)
 
 
-Zero Trust security model enables securing cloud native applications by encrypting all network communication, authenticating, and authorizing every request. The traditional trust management mechanisms represent a static trust relationship which falls deficit while meeting up the dynamic requirement of cloud services. [@zerotrust]. In order to to achieve a true zero-trust security model in the cloud, a combination of network and identity permission policies should be in place.
+Zero Trust security model enables securing cloud-native applications by encrypting all network communication, authenticating, and authorizing every request. The traditional trust management mechanisms represent a static trust relationship that falls deficit while meeting up the dynamic requirement of cloud services. [@zerotrust]. In order to achieve a true zero-trust security model in the cloud, a combination of network and identity permission policies should be in place.
 
 ![The Zero Trust eXtended (ZTX) Ecosystem, Forrester Research, Inc., source - juniper.net](img/zerotrusteco.PNG)
 
@@ -129,24 +129,25 @@ To adequately address the modern dynamic threat environment requires[@NSA]:
 * Coordinated and aggressive system monitoring, system management, and defensive operations capabilities.
 * Assuming all requests for critical resources and all network traffic may be malicious.
 * Assuming all devices and infrastructure may be compromised.
-* Accepting that all access approvals to critical resources incur risk
+* Accepting that all access approvals to critical resources incur a risk
 
 Some security recommendations for network security can be summarized as follows [@securingcloudsurvey]:
+
 * Secure communication techniques should be adopted: HTTPS for web applications, transmission channel must be encrypted by TLS
 * Additional monitoring should be done (manual, automatic, ML based)
-* Other public security services such as web application firewalls (WAF), virtual firewalls, virtual bastion machines, virtual host protection and virtual database audit systems could be used
+* Other public security services such as web application firewalls (WAF), virtual firewalls, virtual bastion machines, virtual host protection, and virtual database audit systems could be used
 
 
 ## Infrastructure as Code 
 
-There was a significant shift in development, deployment and software application management during the past decade. The new approach is called Development Operations (DevOps) where Infrastructure as Code (IaC) plays a core role. While manual configurations in Cloud context was a norm, nowadays it is fully automated using blueprints that are easily interpretable by machines. Moreover, IaC approach allows a faster and homogeneous configuration for the whole infrastructure. Usually, it is utilized by a specific declarative languages (TerraForm, CloudFormation, Puppet) that allows users to describe the desired state of the infrastructure. This significantly reduces the time, complexity and helps to provision the infrastructure from the security, management and costs perspectives. 
+There was a significant shift in development, deployment, and software application management during the past decade. The new approach is called Development Operations (DevOps) where Infrastructure as Code (IaC) plays a core role. While manual configurations in the Cloud context was a norm, nowadays it is fully automated using blueprints that are easily interpretable by machines. Moreover, IaC approach allows a faster and homogeneous configuration for the whole infrastructure. Usually, it is utilized by a specific declarative language (TerraForm, CloudFormation, Puppet) that allows users to describe the desired state of the infrastructure. This significantly reduces the time, complexity and helps to provision the infrastructure from the security, management, and costs perspectives. 
 
 
-The whole idea behind IaC is simple - developers can write declarative statements that define the infrastructure necessary to run the code as oppose to writing a ticket/creating a task for administrators. Reproducibility and transparency comes as a side effect. 
+The whole idea behind IaC is simple - developers can write declarative statements that define the infrastructure necessary to run the code as opposed to writing a ticket/creating a task for administrators. Reproducibility and transparency come as a side effects.
 
 ![Infrastructure as Code Survey, source - thenewstack.io](img/iac.png)
 
-Terraform is one of the most popular way to implement this pipeline, especially in a Cloud context. It is an is an open source tool that lets you provision Google Cloud resources with declarative configuration files—resources such as virtual machines, containers, storage, and networking. It lets uers manage Terraform configuration files in source control to maintain an ideal provisioning state for testing, production and other environments. [@iac]
+Terraform is one of the most popular ways to implement this pipeline, especially in a Cloud context. It is an open-source tool that lets you provision Google Cloud resources with declarative configuration files-resources such as virtual machines, containers, storage, and networking. It lets users manage Terraform configuration files in source control to maintain an ideal provisioning state for testing, production, and other environments. [@iac]
 
 
 ![Terraform example, source - cloud.google.com](img/iac_example.PNG)
@@ -160,15 +161,15 @@ R is a programming language and free software environment for statistical comput
 
 ![R applications - image source ds4ps.org](img/R.png)
 
-Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption. 
+Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption. 
 
 ![Cloud Run - cloud.google.com](img/Cloud-Run.jpeg)
 
 
 
-There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling the portability of the workflows.
+There are even more reasons to choose Cloud Run instead of the Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is constructed on the Knative open‐source project, thus enabling the portability of the workflows.
 
-Let's take the Shiny app example. First we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications [@shinydocker] [@shinydockerrun]. Once application is finished, Dokerfile is needed with all the dependencies included:
+Let's take the Shiny app example. First, we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications [@shinydocker] [@shinydockerrun]. Once the application is finished, Dokerfile is needed with all the dependencies included:
 
 ```bash
 FROM rocker/shiny-verse:latest
@@ -267,7 +268,7 @@ It is easy to monitor and track deployments in Google Cloud Console interface. M
 
 ![Cloud Run Metrics](img/cloudrunmetrics.PNG)
 
-It is important to note that Cloud Run is the cheapest and the most convenient option for Shiny R Application deployment. Minimum instances could be set to 0 to make this application offline when it is not in use. Moreover, SSL certificates are applied automatically and are handled by GCP. Application could be reached publicly using this URL: [https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/](https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/)
+It is important to note that Cloud Run is the cheapest and the most convenient option for Shiny R Application deployment. Minimum instances could be set to 0 to make this application offline when it is not in use. Moreover, SSL certificates are applied automatically and are handled by GCP. The application could be reached publicly using this URL: [https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/](https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/)
 
 ![Cloud Run Metrics](img/shiny-gcr.gif)
 
@@ -276,7 +277,7 @@ It is important to note that Cloud Run is the cheapest and the most convenient o
 
 Google Kubernetes Engine is a straightforward way of setting up a Kubernetes Cluster. These clusters are fully managed by Google Site Reliability Engineers and Google ensures that your cluster is available and up-to-date. It also supports the common Docker container format and runs on Container-Optimized OS.
 
-Once the Cluster is created, the deployment is similar to Cloud Run. It can be done via Google Cloud Console, GCP SDK or integrated in any CI/CD pipeline using Jenkins, GitActions or similar tools. 
+Once the Cluster is created, the deployment is similar to Cloud Run. It can be done via Google Cloud Console, GCP SDK, or integrated into any CI/CD pipeline using Jenkins, GitActions, or similar tools. 
 
 ![Shiny on GKE](img/gke-autoscalling.PNG)
 
@@ -287,13 +288,13 @@ This is an example of the same application deployed on GKE.
 ![GCP Load Balancer](img/gke-lb.jpg)
 
 
-In order to expose Shiny Application to the internal or external network, it is needed to forward the traffic from the GKE cluster. This could be achived via GCP Load balancer. Since Shiny Server is a stateful application, session affinity is also needed in case there are more than one active pods which is also reffered as sticky sessions. 
+In order to expose the Shiny Application to the internal or external network, it is needed to forward the traffic from the GKE cluster. This could be achieved via the GCP Load balancer. Since Shiny Server is a stateful application, session affinity is also needed in case there are more than one active pods which are also referred to as sticky sessions. 
 
 ## Shiny Server on GCE
 
-Google Compute Instance was selected as the third example and perfectly encapsulates Insfrastructure as a Service use case. There we need to prepare everything from scratch - use a fresh VM image of OS we want to use, install all the dependencies and applications we want to use. Later this virtual machine could serve as a centralized place to serve multiple Shiny R Applications. 
+Google Compute Instance was selected as the third example and perfectly encapsulates Infrastructure as a Service use case. There we need to prepare everything from scratch - use a fresh VM image of the OS we want to use, install all the dependencies and applications we want to use. Later this virtual machine could serve as a centralized place to serve multiple Shiny R Applications. 
 
-The main.tf consists of region selection, virtual machine configuration (resources, OS, installed packages) and network (firewall) configuration:
+The main.tf consists of region selection, virtual machine configuration (resources, OS, installed packages), and network (firewall) configuration:
 
 ```terraform
 provider "google" {
@@ -341,7 +342,7 @@ resource "google_compute_firewall" "default" {
 }
 ```
 
-After the initiation, terraform generates a plan for the infrastructe. Once this plan is revised, it can be applied and resources will be created. 
+After the initiation, terraform generates a plan for the infrastructure. Once this plan is revised, it can be applied and resources will be created. 
 
 ```
 Terraform used the selected providers to generate the following execution
@@ -465,30 +466,30 @@ Terraform will perform the following actions:
 Plan: 3 to add, 0 to change, 0 to destroy.
 ```
 
-After the terraform apply, virtual machine is created in Google Compute Instance having all the libraries installed and network configuration applied.
+After the terraform apply, a virtual machine is created in Google Compute Instance having all the libraries installed and network configuration applied.
 
 ![CE instance](img/ce-shiny-server-instance.png)
 
-Shiny server is reachable for everyone. More granular firewall rules could be applied for not exposing it to the whole internet. Additional authentication and https protocol could be applied if needed (since Shiny Server Open Source version does not support HTTPS by default, this could be handled via other tools, such as Apache Server, Nginx or Google Load Balancer service). 
+The shiny-server is reachable for everyone. More granular firewall rules could be applied to not expose it to the whole internet. Additional authentication and HTTPS protocol could be applied if needed (since Shiny Server Open Source version does not support HTTPS by default, this could be handled via other tools, such as Apache Server, Nginx, or Google Load Balancer service). 
 
 ![Shiny Server is Alive](img/ce-shiny-server.gif)
 
 ## Limitations
 
 * VM image templates with preinstalled software can be used for faster deployments/replication
-* Integration with git flow and Github actions - branches, depended on the environments, terraform state saved in GCS buckets
+* Integration with git-flow and Github actions - branches, depending on the environments, terraform state saved in GCS buckets
 * More granularity in terraform scripts - modules for infrastructure, network, variables, outputs, etc.
 * VPC peering could be used as an alternative to public IPs - it allows internal IP address connectivity across two Virtual Private Cloud (VPC) networks regardless of whether they belong to the same project or the same organization. Service owners do not need to have their services exposed to the public Internet and deal with its associated risks.
 
 ## Security Experiment
 
-Computer  networks  are  prone to  attacks  and it  has wide  range  of attacks  associated  with  it. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based and Social Engineering attacks [@attacks].
+Computer networks are prone to attacks and it has a wide range of attacks associated with them. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based, and Social Engineering attacks [@attacks].
 
-As an experiment, firewall was opened to the whole world and network activity was monitored for one week. While the activity in the Compute Instance (Shiny Server hosted on a Virtual Server) was marginal, the exposed Shiny Server instance on Google Kubernetes Cluster was scanned extensively. This could be due to the rules how Google generate IP addresses for corresponsing instances. Moreover, GKE was exposed on port 80 which is a standard HTTP port, while standard port of shiny server (3838) was used for Compute Instance, which is not that common configuration.
+As an experiment, the firewall was opened to the whole world and network activity was monitored for one week. While the activity in the Compute Instance (Shiny Server hosted on a Virtual Server) was marginal, the exposed Shiny Server instance on Google Kubernetes Cluster was scanned extensively. This could be due to the rules on how Google generates IP addresses for corresponding instances. Moreover, GKE was exposed on port 80 which is a standard HTTP port, while the standard port of shiny server (3838) was used for Compute Instance, which is not that common configuration.
 
 ![Incoming Requests](img/incoming_requests.png)
 
-While the majority of the requests came from USA, applications from China and Russia also scanned our exposed application considerably. These scans also are not centralized, but rather done by individuals or companies which specializes in data mining and web crawling. Some requests are also received from Lithuania, CGates Internet Service Provider. 
+While the majority of the requests came from the USA, applications from China and Russia also scanned our exposed application considerably. These scans also are not centralized but are rather done by individuals or companies which specialize in data mining and web crawling. Some requests are also received from Lithuania, CGates Internet Service Provider. 
 
 ![Incoming Requets from different cities](img/all_cities.png)
 
@@ -496,7 +497,7 @@ Some of the IPs were crossed check with a publicly available IP database. These 
 
 ![Blacklisted IPs - source https://www.abuseipdb.com/](img/abuse_ip.PNG)
 
-The analysis proves that incorrectly configured firewall poses one of the most significant security risk. Misconfigured applications could serve as a back door and is a low handing fruit for hackers - e.g. it is easy to run a port scan for a specific IP range and use a collection of scripts/exploits to check whether there are any holes in the application. If any sensitive data where General Data Protection Regulation is not applied (i.e. USA, China, Russia).
+The analysis proves that an incorrectly configured firewall poses one of the most significant security risks. Misconfigured applications could serve as a back door and is a low handing fruit for hackers - e.g. it is easy to run a port scan for a specific IP range and use a collection of scripts/exploits to check whether there are any holes in the application. If any sensitive data where General Data Protection Regulation is not applied (i.e. USA, China, Russia).
 
 # References {-}
 

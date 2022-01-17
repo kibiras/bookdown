@@ -24,7 +24,7 @@
 <meta name="author" content="Kęstutis Daugėla" />
 
 
-<meta name="date" content="2022-01-12" />
+<meta name="date" content="2022-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,12 +188,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Increased reliability and availability</li>
 <li>DevOps way of working</li>
 </ul>
-<p>Despite bringing many benefits, the cloud computing paradigm imposes serious concerns in terms of security and privacy, which are considered hurdles in the adoption of the cloud at a very large scale <span class="citation">(Alghofaili et al. <a href="#ref-securingcloudsurvey" role="doc-biblioref">2021</a>)</span>. Security issues are depended on the cloud provider, service user, instance <span class="citation">(Sun et al. <a href="#ref-datasecurity" role="doc-biblioref">2014</a>)</span> and the delivery model, PaaS, IaaS, and SaaS <span class="citation">(Sun <a href="#ref-securitymode" role="doc-biblioref">2018</a>)</span>. Data stored in public cloud would face both outside attacks and inside attacks <span class="citation">(Shi <a href="#ref-securityprivacy" role="doc-biblioref">2018</a>)</span>. Data loss and leakage were as the biggest security concern, with 44% of organizations seeing data loss as one of their top three focus areas. Two-thirds of organizations leave back doors open to attackers leading to an accidental exposure through misconfiguration. Security gaps in misconfigurations were exploited in 66% of attacks <span class="citation">(Sophos <a href="#ref-sophos" role="doc-biblioref">2020</a>)</span>.</p>
+<p>Despite bringing many benefits, the cloud computing paradigm imposes serious concerns in terms of security and privacy, which are considered hurdles in the adoption of the cloud at a very large scale <span class="citation">(Alghofaili et al. <a href="#ref-securingcloudsurvey" role="doc-biblioref">2021</a>)</span>. Security issues are depended on the cloud provider, service user, instance <span class="citation">(Sun et al. <a href="#ref-datasecurity" role="doc-biblioref">2014</a>)</span>, and the delivery model, PaaS, IaaS, and SaaS <span class="citation">(Sun <a href="#ref-securitymode" role="doc-biblioref">2018</a>)</span>. Data stored in the public cloud would face both outside attacks and inside attacks <span class="citation">(Shi <a href="#ref-securityprivacy" role="doc-biblioref">2018</a>)</span>. Data loss and leakage were the biggest security concern, with 44% of organizations seeing data loss as one of their top three focus areas. Two-thirds of organizations leave back doors open to attackers leading to an accidental exposure through misconfiguration. Security gaps in misconfigurations were exploited in 66% of attacks <span class="citation">(Sophos <a href="#ref-sophos" role="doc-biblioref">2020</a>)</span>.</p>
 <div class="figure">
 <img src="img/sophos_threats.PNG" alt="" />
 <p class="caption">How criminals are getting in, source - sophos.com</p>
 </div>
-<p>Zero Trust security model enables securing cloud native applications by encrypting all network communication, authenticating, and authorizing every request. The traditional trust management mechanisms represent a static trust relationship which falls deficit while meeting up the dynamic requirement of cloud services. <span class="citation">(Mehraj and Banday <a href="#ref-zerotrust" role="doc-biblioref">2020</a>)</span>. In order to to achieve a true zero-trust security model in the cloud, a combination of network and identity permission policies should be in place.</p>
+<p>Zero Trust security model enables securing cloud-native applications by encrypting all network communication, authenticating, and authorizing every request. The traditional trust management mechanisms represent a static trust relationship that falls deficit while meeting up the dynamic requirement of cloud services. <span class="citation">(Mehraj and Banday <a href="#ref-zerotrust" role="doc-biblioref">2020</a>)</span>. In order to achieve a true zero-trust security model in the cloud, a combination of network and identity permission policies should be in place.</p>
 <div class="figure">
 <img src="img/zerotrusteco.PNG" alt="" />
 <p class="caption">The Zero Trust eXtended (ZTX) Ecosystem, Forrester Research, Inc., source - juniper.net</p>
@@ -203,22 +203,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Coordinated and aggressive system monitoring, system management, and defensive operations capabilities.</li>
 <li>Assuming all requests for critical resources and all network traffic may be malicious.</li>
 <li>Assuming all devices and infrastructure may be compromised.</li>
-<li>Accepting that all access approvals to critical resources incur risk</li>
+<li>Accepting that all access approvals to critical resources incur a risk</li>
 </ul>
-<p>Some security recommendations for network security can be summarized as follows <span class="citation">(Alghofaili et al. <a href="#ref-securingcloudsurvey" role="doc-biblioref">2021</a>)</span>:
-* Secure communication techniques should be adopted: HTTPS for web applications, transmission channel must be encrypted by TLS
-* Additional monitoring should be done (manual, automatic, ML based)
-* Other public security services such as web application firewalls (WAF), virtual firewalls, virtual bastion machines, virtual host protection and virtual database audit systems could be used</p>
+<p>Some security recommendations for network security can be summarized as follows <span class="citation">(Alghofaili et al. <a href="#ref-securingcloudsurvey" role="doc-biblioref">2021</a>)</span>:</p>
+<ul>
+<li>Secure communication techniques should be adopted: HTTPS for web applications, transmission channel must be encrypted by TLS</li>
+<li>Additional monitoring should be done (manual, automatic, ML based)</li>
+<li>Other public security services such as web application firewalls (WAF), virtual firewalls, virtual bastion machines, virtual host protection, and virtual database audit systems could be used</li>
+</ul>
 </div>
 <div id="infrastructure-as-code" class="section level2">
 <h2><span class="header-section-number">2.2</span> Infrastructure as Code</h2>
-<p>There was a significant shift in development, deployment and software application management during the past decade. The new approach is called Development Operations (DevOps) where Infrastructure as Code (IaC) plays a core role. While manual configurations in Cloud context was a norm, nowadays it is fully automated using blueprints that are easily interpretable by machines. Moreover, IaC approach allows a faster and homogeneous configuration for the whole infrastructure. Usually, it is utilized by a specific declarative languages (TerraForm, CloudFormation, Puppet) that allows users to describe the desired state of the infrastructure. This significantly reduces the time, complexity and helps to provision the infrastructure from the security, management and costs perspectives.</p>
-<p>The whole idea behind IaC is simple - developers can write declarative statements that define the infrastructure necessary to run the code as oppose to writing a ticket/creating a task for administrators. Reproducibility and transparency comes as a side effect.</p>
+<p>There was a significant shift in development, deployment, and software application management during the past decade. The new approach is called Development Operations (DevOps) where Infrastructure as Code (IaC) plays a core role. While manual configurations in the Cloud context was a norm, nowadays it is fully automated using blueprints that are easily interpretable by machines. Moreover, IaC approach allows a faster and homogeneous configuration for the whole infrastructure. Usually, it is utilized by a specific declarative language (TerraForm, CloudFormation, Puppet) that allows users to describe the desired state of the infrastructure. This significantly reduces the time, complexity and helps to provision the infrastructure from the security, management, and costs perspectives.</p>
+<p>The whole idea behind IaC is simple - developers can write declarative statements that define the infrastructure necessary to run the code as opposed to writing a ticket/creating a task for administrators. Reproducibility and transparency come as a side effects.</p>
 <div class="figure">
 <img src="img/iac.png" alt="" />
 <p class="caption">Infrastructure as Code Survey, source - thenewstack.io</p>
 </div>
-<p>Terraform is one of the most popular way to implement this pipeline, especially in a Cloud context. It is an is an open source tool that lets you provision Google Cloud resources with declarative configuration files—resources such as virtual machines, containers, storage, and networking. It lets uers manage Terraform configuration files in source control to maintain an ideal provisioning state for testing, production and other environments. <span class="citation">(Almuairfi and Alenezi <a href="#ref-iac" role="doc-biblioref">2020</a>)</span></p>
+<p>Terraform is one of the most popular ways to implement this pipeline, especially in a Cloud context. It is an open-source tool that lets you provision Google Cloud resources with declarative configuration files-resources such as virtual machines, containers, storage, and networking. It lets users manage Terraform configuration files in source control to maintain an ideal provisioning state for testing, production, and other environments. <span class="citation">(Almuairfi and Alenezi <a href="#ref-iac" role="doc-biblioref">2020</a>)</span></p>
 <div class="figure">
 <img src="img/iac_example.PNG" alt="" />
 <p class="caption">Terraform example, source - cloud.google.com</p>

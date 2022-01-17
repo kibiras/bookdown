@@ -24,7 +24,7 @@
 <meta name="author" content="Kęstutis Daugėla" />
 
 
-<meta name="date" content="2022-01-12" />
+<meta name="date" content="2022-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,13 +184,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="img/R.png" alt="" />
 <p class="caption">R applications - image source ds4ps.org</p>
 </div>
-<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives a complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
+<p>Google Kubernetes Engine (GKE) is a great choice for a container orchestration platform and offers advanced scalability and configuration flexibility. GKE gives complete control over every aspect of container orchestration, from networking to storage, to how you set up observability in addition to supporting stateful application use cases. A fully managed Cloud Run is the additional service based on GKE for those applications which do not need a comprehensive level of cluster configuration and monitoring. Additionally, the serverless approach provides more fine-grained billing and can significantly reduce the cost (e.g. in case the application is not in use). With a manually created GKE cluster, the nodes and environment are always on which means that you are billed for them regardless of utilization. With Cloud Run, the service is merely available and the billing is done only for the actual consumption.</p>
 <div class="figure">
 <img src="img/Cloud-Run.jpeg" alt="" />
 <p class="caption">Cloud Run - cloud.google.com</p>
 </div>
-<p>There are even more reasons to choose Cloud Run instead of Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is is constructed on the Knative open‐source project, thus enabling the portability of the workflows.</p>
-<p>Let’s take the Shiny app example. First we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span> <span class="citation">(Christensen <a href="#ref-shinydockerrun" role="doc-biblioref">2021</a>)</span>. Once application is finished, Dokerfile is needed with all the dependencies included:</p>
+<p>There are even more reasons to choose Cloud Run instead of the Kubernetes cluster. Typically R users are not software engineers, so we should not only aim for simplicity in the development flow, but convenient application management as well (e.g. Google Cloud Run application automatically scales up depending on the traffic). Cloud Run is also integrated with Stackdriver Monitoring, Logging, and Error Reporting services. Moreover, Cloud Run is constructed on the Knative open‐source project, thus enabling the portability of the workflows.</p>
+<p>Let’s take the Shiny app example. First, we need to build an app and containerize it. Since Google Cloud Run was introduced only in 2019, there were only a few attempts to leverage this technology against Shiny R applications <span class="citation">(Xu <a href="#ref-shinydocker" role="doc-biblioref">2020</a>)</span> <span class="citation">(Christensen <a href="#ref-shinydockerrun" role="doc-biblioref">2021</a>)</span>. Once the application is finished, Dokerfile is needed with all the dependencies included:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="use-cases.html#cb1-1"></a><span class="ex">FROM</span> rocker/shiny-verse:latest</span>
 <span id="cb1-2"><a href="use-cases.html#cb1-2"></a><span class="ex">RUN</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install -y \</span>
 <span id="cb1-3"><a href="use-cases.html#cb1-3"></a>    sudo \</span>
@@ -280,7 +280,7 @@ resource &quot;google_cloud_run_service_iam_member&quot; &quot;allUsers&quot; {
 <img src="img/cloudrunmetrics.PNG" alt="" />
 <p class="caption">Cloud Run Metrics</p>
 </div>
-<p>It is important to note that Cloud Run is the cheapest and the most convenient option for Shiny R Application deployment. Minimum instances could be set to 0 to make this application offline when it is not in use. Moreover, SSL certificates are applied automatically and are handled by GCP. Application could be reached publicly using this URL: <a href="https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/">https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/</a></p>
+<p>It is important to note that Cloud Run is the cheapest and the most convenient option for Shiny R Application deployment. Minimum instances could be set to 0 to make this application offline when it is not in use. Moreover, SSL certificates are applied automatically and are handled by GCP. The application could be reached publicly using this URL: <a href="https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/">https://shiny-gcr-tf-b4sly2joja-ew.a.run.app/</a></p>
 <div class="figure">
 <img src="img/shiny-gcr.gif" alt="" />
 <p class="caption">Cloud Run Metrics</p>
@@ -289,7 +289,7 @@ resource &quot;google_cloud_run_service_iam_member&quot; &quot;allUsers&quot; {
 <div id="shiny-server-on-gke" class="section level2">
 <h2><span class="header-section-number">3.2</span> Shiny Server on GKE</h2>
 <p>Google Kubernetes Engine is a straightforward way of setting up a Kubernetes Cluster. These clusters are fully managed by Google Site Reliability Engineers and Google ensures that your cluster is available and up-to-date. It also supports the common Docker container format and runs on Container-Optimized OS.</p>
-<p>Once the Cluster is created, the deployment is similar to Cloud Run. It can be done via Google Cloud Console, GCP SDK or integrated in any CI/CD pipeline using Jenkins, GitActions or similar tools.</p>
+<p>Once the Cluster is created, the deployment is similar to Cloud Run. It can be done via Google Cloud Console, GCP SDK, or integrated into any CI/CD pipeline using Jenkins, GitActions, or similar tools.</p>
 <div class="figure">
 <img src="img/gke-autoscalling.PNG" alt="" />
 <p class="caption">Shiny on GKE</p>
@@ -303,12 +303,12 @@ resource &quot;google_cloud_run_service_iam_member&quot; &quot;allUsers&quot; {
 <img src="img/gke-lb.jpg" alt="" />
 <p class="caption">GCP Load Balancer</p>
 </div>
-<p>In order to expose Shiny Application to the internal or external network, it is needed to forward the traffic from the GKE cluster. This could be achived via GCP Load balancer. Since Shiny Server is a stateful application, session affinity is also needed in case there are more than one active pods which is also reffered as sticky sessions.</p>
+<p>In order to expose the Shiny Application to the internal or external network, it is needed to forward the traffic from the GKE cluster. This could be achieved via the GCP Load balancer. Since Shiny Server is a stateful application, session affinity is also needed in case there are more than one active pods which are also referred to as sticky sessions.</p>
 </div>
 <div id="shiny-server-on-gce" class="section level2">
 <h2><span class="header-section-number">3.3</span> Shiny Server on GCE</h2>
-<p>Google Compute Instance was selected as the third example and perfectly encapsulates Insfrastructure as a Service use case. There we need to prepare everything from scratch - use a fresh VM image of OS we want to use, install all the dependencies and applications we want to use. Later this virtual machine could serve as a centralized place to serve multiple Shiny R Applications.</p>
-<p>The main.tf consists of region selection, virtual machine configuration (resources, OS, installed packages) and network (firewall) configuration:</p>
+<p>Google Compute Instance was selected as the third example and perfectly encapsulates Infrastructure as a Service use case. There we need to prepare everything from scratch - use a fresh VM image of the OS we want to use, install all the dependencies and applications we want to use. Later this virtual machine could serve as a centralized place to serve multiple Shiny R Applications.</p>
+<p>The main.tf consists of region selection, virtual machine configuration (resources, OS, installed packages), and network (firewall) configuration:</p>
 <pre class="terraform"><code>provider &quot;google&quot; {
  project     = &quot;vgtu-cloud&quot;
  region      = &quot;europe-west1&quot;
@@ -352,7 +352,7 @@ resource &quot;google_compute_firewall&quot; &quot;default&quot; {
    ports    = [&quot;3838&quot;]
  }
 }</code></pre>
-<p>After the initiation, terraform generates a plan for the infrastructe. Once this plan is revised, it can be applied and resources will be created.</p>
+<p>After the initiation, terraform generates a plan for the infrastructure. Once this plan is revised, it can be applied and resources will be created.</p>
 <pre><code>Terraform used the selected providers to generate the following execution
 plan. Resource actions are indicated with the following symbols:
   + create
@@ -472,12 +472,12 @@ Terraform will perform the following actions:
     }
 
 Plan: 3 to add, 0 to change, 0 to destroy.</code></pre>
-<p>After the terraform apply, virtual machine is created in Google Compute Instance having all the libraries installed and network configuration applied.</p>
+<p>After the terraform apply, a virtual machine is created in Google Compute Instance having all the libraries installed and network configuration applied.</p>
 <div class="figure">
 <img src="img/ce-shiny-server-instance.png" alt="" />
 <p class="caption">CE instance</p>
 </div>
-<p>Shiny server is reachable for everyone. More granular firewall rules could be applied for not exposing it to the whole internet. Additional authentication and https protocol could be applied if needed (since Shiny Server Open Source version does not support HTTPS by default, this could be handled via other tools, such as Apache Server, Nginx or Google Load Balancer service).</p>
+<p>The shiny-server is reachable for everyone. More granular firewall rules could be applied to not expose it to the whole internet. Additional authentication and HTTPS protocol could be applied if needed (since Shiny Server Open Source version does not support HTTPS by default, this could be handled via other tools, such as Apache Server, Nginx, or Google Load Balancer service).</p>
 <div class="figure">
 <img src="img/ce-shiny-server.gif" alt="" />
 <p class="caption">Shiny Server is Alive</p>
@@ -487,20 +487,20 @@ Plan: 3 to add, 0 to change, 0 to destroy.</code></pre>
 <h2><span class="header-section-number">3.4</span> Limitations</h2>
 <ul>
 <li>VM image templates with preinstalled software can be used for faster deployments/replication</li>
-<li>Integration with git flow and Github actions - branches, depended on the environments, terraform state saved in GCS buckets</li>
+<li>Integration with git-flow and Github actions - branches, depending on the environments, terraform state saved in GCS buckets</li>
 <li>More granularity in terraform scripts - modules for infrastructure, network, variables, outputs, etc.</li>
 <li>VPC peering could be used as an alternative to public IPs - it allows internal IP address connectivity across two Virtual Private Cloud (VPC) networks regardless of whether they belong to the same project or the same organization. Service owners do not need to have their services exposed to the public Internet and deal with its associated risks.</li>
 </ul>
 </div>
 <div id="security-experiment" class="section level2">
 <h2><span class="header-section-number">3.5</span> Security Experiment</h2>
-<p>Computer networks are prone to attacks and it has wide range of attacks associated with it. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based and Social Engineering attacks <span class="citation">(Chopra <a href="#ref-attacks" role="doc-biblioref">2016</a>)</span>.</p>
-<p>As an experiment, firewall was opened to the whole world and network activity was monitored for one week. While the activity in the Compute Instance (Shiny Server hosted on a Virtual Server) was marginal, the exposed Shiny Server instance on Google Kubernetes Cluster was scanned extensively. This could be due to the rules how Google generate IP addresses for corresponsing instances. Moreover, GKE was exposed on port 80 which is a standard HTTP port, while standard port of shiny server (3838) was used for Compute Instance, which is not that common configuration.</p>
+<p>Computer networks are prone to attacks and it has a wide range of attacks associated with them. Cloud is not an exception and even holds more risk. It can be prone to Denial-of-service, Eavesdropping, Host Attacks, Password Guessing, Protocol-based, and Social Engineering attacks <span class="citation">(Chopra <a href="#ref-attacks" role="doc-biblioref">2016</a>)</span>.</p>
+<p>As an experiment, the firewall was opened to the whole world and network activity was monitored for one week. While the activity in the Compute Instance (Shiny Server hosted on a Virtual Server) was marginal, the exposed Shiny Server instance on Google Kubernetes Cluster was scanned extensively. This could be due to the rules on how Google generates IP addresses for corresponding instances. Moreover, GKE was exposed on port 80 which is a standard HTTP port, while the standard port of shiny server (3838) was used for Compute Instance, which is not that common configuration.</p>
 <div class="figure">
 <img src="img/incoming_requests.png" alt="" />
 <p class="caption">Incoming Requests</p>
 </div>
-<p>While the majority of the requests came from USA, applications from China and Russia also scanned our exposed application considerably. These scans also are not centralized, but rather done by individuals or companies which specializes in data mining and web crawling. Some requests are also received from Lithuania, CGates Internet Service Provider.</p>
+<p>While the majority of the requests came from the USA, applications from China and Russia also scanned our exposed application considerably. These scans also are not centralized but are rather done by individuals or companies which specialize in data mining and web crawling. Some requests are also received from Lithuania, CGates Internet Service Provider.</p>
 <div class="figure">
 <img src="img/all_cities.png" alt="" />
 <p class="caption">Incoming Requets from different cities</p>
@@ -510,7 +510,7 @@ Plan: 3 to add, 0 to change, 0 to destroy.</code></pre>
 <img src="img/abuse_ip.PNG" alt="" />
 <p class="caption">Blacklisted IPs - source <a href="https://www.abuseipdb.com/" class="uri">https://www.abuseipdb.com/</a></p>
 </div>
-<p>The analysis proves that incorrectly configured firewall poses one of the most significant security risk. Misconfigured applications could serve as a back door and is a low handing fruit for hackers - e.g. it is easy to run a port scan for a specific IP range and use a collection of scripts/exploits to check whether there are any holes in the application. If any sensitive data where General Data Protection Regulation is not applied (i.e. USA, China, Russia).</p>
+<p>The analysis proves that an incorrectly configured firewall poses one of the most significant security risks. Misconfigured applications could serve as a back door and is a low handing fruit for hackers - e.g. it is easy to run a port scan for a specific IP range and use a collection of scripts/exploits to check whether there are any holes in the application. If any sensitive data where General Data Protection Regulation is not applied (i.e. USA, China, Russia).</p>
 </div>
 </div>
 <h3>References</h3>
